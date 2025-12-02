@@ -94,7 +94,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function loadQuestions(id) {
-        const response = await fetch(`data/tema${id}.json`);
+        // --- CAMBIO AQUÍ ---
+        // Determinamos la ruta basándonos en el origen
+        let path = '';
+        if (originSource === 'alumnos') {
+            path = `data/alumnos/tema${id}.json`;
+        } else {
+            // Si es 'general' o cualquier otra cosa, va a la carpeta general
+            path = `data/general/tema${id}.json`;
+        }
+
+        console.log(`Cargando preguntas desde: ${path}`); // Para depurar si hace falta
+
+        const response = await fetch(path);
+        // -------------------
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -102,16 +115,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let rawQuestions = await response.json();
         
-        // 1. ALEATORIZAR PREGUNTAS AQUÍ
-        // Mezclamos el orden de las preguntas apenas cargan
+        // ... (el resto de la función sigue igual: shuffleArray, etc.)
         questions = shuffleArray(rawQuestions);
-
         userAnswers = new Array(questions.length).fill(null);
-
+        
         loadingState.classList.add('hidden');
         questionContainer.classList.remove('hidden');
         nextBtn.classList.remove('hidden');
-
+        
         renderQuestion(0);
     }
 

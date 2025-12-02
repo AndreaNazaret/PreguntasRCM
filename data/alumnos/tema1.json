@@ -1,0 +1,213 @@
+[
+  {
+    "pregunta": "¿Cuáles de las siguientes son técnicas de acceso múltiple conocidas dentro del grupo de acceso aleatorio?",
+    "opciones": [
+      "ALOHA",
+      "Slotted ALOHA",
+      "CSMA, CSMA/CD y CSMA/CA",
+      "Todas las anteriores",
+      "Ninguna de las anteriores"
+    ],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "En CDMA (Code Division Multiple Access), ¿cuál es el papel de la ortogonalización de los códigos asignados a los usuarios?",
+    "opciones": [
+      "Minimizar las interferencias entre transmisiones distintas",
+      "Aumentar la potencia de la señal transmitida",
+      "Reducir la necesidad de sincronización entre los usuarios",
+      "Todas las anteriores",
+      "Ninguna de las anteriores"
+    ],
+    "respuesta_correcta": 0
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes modos de explotación permite transmitir información en ambas direcciones pero no de manera simultánea?",
+    "opciones": [
+      "Simplex",
+      "Duplex",
+      "Semiduplex",
+      "Multiplex",
+      "Ninguna de las anteriores"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuántas direcciones de transmisión existen en el modo Simplex?",
+    "opciones": [
+      "Dos direcciones simultáneas",
+      "Dos direcciones alternas",
+      "Una sola dirección",
+      "Ninguna dirección",
+      "Ilimitadas direcciones"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes opciones describe correctamente un sistema simplex?",
+    "opciones": [
+      "La comunicación ocurre en ambos sentidos pero solo de manera alternada",
+      "La comunicación ocurre en ambos sentidos de forma simultánea",
+      "La comunicación ocurre en un único sentido, sin retorno",
+      "No existe comunicación entre emisor y receptor"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "En un sistema semidúplex (half-duplex), la característica principal es:",
+    "opciones": [
+      "Ambas partes pueden transmitir al mismo tiempo",
+      "Solo un equipo puede transmitir a la vez, alternando entre emisor y receptor",
+      "Ninguno de los equipos puede recibir datos",
+      "Permite la transmisión en un solo sentido permanentemente"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes frases es correcta acerca de TDMA (Time Division Multiple Access)?",
+    "opciones": [
+      "Se accede al canal por rondas",
+      "Cada nodo tiene asignado un slot de tiempo en cada ronda",
+      "La longitud de cada slot suele ser el tiempo de transmisión de un paquete de tamaño máximo",
+      "Los slots sin transmisión no pueden ser utilizados por otros nodos",
+      "Todas las opciones son correctas"
+    ],
+    "respuesta_correcta": 4
+  },
+  {
+    "pregunta": "¿En qué consiste Path Loss?",
+    "opciones": [
+      "La misma señal de radio llega al destino en diferentes instantes de tiempo debido a las reflexiones",
+      "La señal de radio se atenúa a medida que se propaga por el aire",
+      "Interferencias debido a que diferentes equipos comparten la misma frecuencia de trabajo",
+      "Distorsión de la señal provocada por el movimiento relativo entre transmisor y receptor"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes afirmaciones describe correctamente una característica diferencial del modo infraestructura frente al modo ad-hoc?",
+    "opciones": [
+      "El acceso al medio se coordina únicamente mediante protocolos distribuidos entre los nodos",
+      "Los nodos pueden conectarse a una red cableada mediante estaciones base",
+      "La comunicación solo se establece entre nodos que estén físicamente dentro de la misma área de cobertura",
+      "La red se organiza de manera autónoma sin necesidad de dispositivos adicionales",
+      "No existe la posibilidad de cambiar de estación base al desplazarse"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "En el modo ad-hoc de una red inalámbrica:",
+    "opciones": [
+      "Existen estaciones base que gestionan la comunicación entre nodos",
+      "Los nodos solo transmiten a los que están dentro del área de cobertura",
+      "Los nodos dependen de la red cableada para organizarse",
+      "El handoff es imprescindible para mantener la conexión",
+      "La red se organiza siempre a través de un servidor central"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes problemas es característico de las redes inalámbricas y no suele aparecer en redes cableadas?",
+    "opciones": [
+      "Latencia de propagación",
+      "Efecto de terminal oculto",
+      "Saturación del canal por exceso de usuarios",
+      "Retardo en la conmutación"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Qué modo de red inalámbrica permite la comunicación directa entre dispositivos sin necesidad de un punto de acceso?",
+    "opciones": [
+      "Red de infraestructura",
+      "Red dúplex",
+      "Red semiduplex",
+      "Red adhoc"
+    ],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "¿Qué término describe el flujo saliente de energía de una fuente en forma de ondas, y que puede ser producido por un sistema de radiocomunicación incluso si no son deseadas?",
+    "opciones": [
+      "Emisión",
+      "Propagación de señal",
+      "Radiaciones parásitas",
+      "Modulación de onda"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes elementos de una red inalámbrica es responsable de enviar paquetes entre la red cableada y los terminales inalámbricos de su área de cobertura?",
+    "opciones": [
+      "Antena",
+      "Enlace inalámbrico",
+      "Nodo inalámbrico",
+      "Estación base"
+    ],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "¿Cuál es una de las principales diferencias entre un medio cableado y un medio inalámbrico?",
+    "opciones": [
+      "El medio inalámbrico no necesita antenas",
+      "En el medio inalámbrico se producen atenuación e interferencias",
+      "El medio cableado siempre tiene menos capacidad que el inalámbrico",
+      "En el medio inalámbrico no existe el ruido"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "En el modo ad hoc de una red inalámbrica…",
+    "opciones": [
+      "Los nodos se conectan a través de estaciones base",
+      "Los nodos organizan su propia red sin necesidad de estación base",
+      "Se requiere siempre conexión a Internet",
+      "Es un modo exclusivo de redes de telefonía móvil"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes afirmaciones es correcta acerca de la propagación en redes inalámbricas?",
+    "opciones": [
+      "El medio inalámbrico no presenta pérdidas ni interferencias",
+      "La señal de radio se atenúa a medida que se propaga en el aire (Path Loss)",
+      "No existen problemas de interferencia en bandas compartidas",
+      "Las señales siempre llegan al receptor en el mismo instante de tiempo",
+      "Ninguna de las anteriores"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Qué dispositivo de una red inalámbrica se encarga de conectar los nodos móviles con la red cableada?",
+    "opciones": [
+      "Antena",
+      "Enlace inalámbrico",
+      "Estación base",
+      "Nodo inalámbrico",
+      "Router de usuario"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál es la eficiencia máxima teórica de Slotted ALOHA?",
+    "opciones": [
+      "18%",
+      "25%",
+      "37%",
+      "50%",
+      "80%"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Qué principio sigue CSMA (Carrier Sense Multiple Access)?",
+    "opciones": [
+      "Los nodos transmiten sin coordinación en cualquier instante",
+      "Cada nodo transmite en una frecuencia diferente",
+      "Escuchar el canal antes de transmitir",
+      "Utilizar un código único para cada nodo",
+      "Dividir el canal en intervalos de tiempo fijos"
+    ],
+    "respuesta_correcta": 2
+  }
+]
