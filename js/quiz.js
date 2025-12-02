@@ -64,9 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         questions = await response.json();
 
-        // Shuffle questions
-        questions.sort(() => Math.random() - 0.5);
-
         // Initialize user answers array with nulls
         userAnswers = new Array(questions.length).fill(null);
 
