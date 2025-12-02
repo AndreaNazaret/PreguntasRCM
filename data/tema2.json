@@ -1,0 +1,109 @@
+[
+    {
+        "pregunta": "¿Cuál es el estándar más común para redes WiFi?",
+        "opciones": [
+            "IEEE 805.3",
+            "IEEE 802.11",
+            "IEEE 802.5",
+            "IEEE 800.12",
+            "IEEE 803.15"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "En el funcionamiento básico del DCF (CSMA/CA), ¿qué ocurre si una estación no recibe ACK?",
+        "opciones": [
+            "Repite la transmisión tras un tiempo aleatorio",
+            "Finaliza la conexión",
+            "Envía un CTS para solicitar acceso al canal",
+            "Reasocia la estación con el AP",
+            "Libera el canal mediante RTS"
+        ],
+        "respuesta_correcta": 0
+    },
+    {
+        "pregunta": "¿Cuál es el modo de operación básico y más común de las redes 802.11 donde los dispositivos cliente se conectan a través de un Punto de Acceso?",
+        "opciones": [
+            "Modo Mesh",
+            "Modo Cliente-Servidor",
+            "Modo Infraestructura",
+            "Modo Ad-Hoc",
+            "Modo P2P (Peer-to-Peer)"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "¿Cuál de los siguientes mecanismos de seguridad utiliza un vector de inicialización de 24 bits?",
+        "opciones": [
+            "WEP",
+            "WAP",
+            "WAP2",
+            "WAP2-Enterprise"
+        ],
+        "respuesta_correcta": 0
+    },
+    {
+        "pregunta": "¿Cuál de las siguientes técnicas se utiliza para ensanchar el ancho de banda en sistemas de comunicación inalámbrica?",
+        "opciones": [
+            "Multiplexación por división en frecuencia (FDM)",
+            "Espectro ensanchado por secuencia directa (DSSS)",
+            "Espectro ensanchado por salto de frecuencia (FHSS)",
+            "Ortogonal Frequency Division Multiplexing (OFDM)",
+            "Compresión de señal"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "¿Cuál es el protocolo de encriptación usado en WPA2?",
+        "opciones": [
+            "RC4",
+            "TKIP",
+            "AES",
+            "DES",
+            "Ninguna de las anteriores"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "¿Cuál de las siguientes es una ventaja principal de las redes WLAN?",
+        "opciones": [
+            "Sustituyen completamente a las redes cableadas",
+            "Ofrecen flexibilidad y facilidad de instalación en lugares donde el cableado es complicado",
+            "Garantizan siempre tasas de transmisión más altas que las redes cableadas",
+            "No presentan problemas de seguridad"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "¿Qué técnica de acceso múltiple emplean las redes WiFi (IEEE 802.11)?",
+        "opciones": [
+            "CSMA/CD",
+            "TDMA",
+            "CSMA/CA",
+            "FDMA",
+            "ALOHA"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "En IEEE 802.11n (WiFi 4), ¿qué técnica permite transmitir varios flujos de datos en paralelo usando múltiples antenas?",
+        "opciones": [
+            "DSSS",
+            "MIMO",
+            "CDMA",
+            "FHSS"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "¿Qué subcapa de la capa física se encarga de adaptar las tramas MAC para su transmisión?",
+        "opciones": [
+            "PMD",
+            "PLCP",
+            "LLC",
+            "MAC",
+            "PHY"
+        ],
+        "respuesta_correcta": 1
+    }
+]

@@ -3,28 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test B2 - Menu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/menu.css">
-
+  <title>Preguntas RCM - Menú Principal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .animated-bg {
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
 </head>
-<body>
-  
-   <h1 class="titulo">PREGUNTAS RCM</h1>
-   <p class="subtitulo">Preguntas tipo test Redes de Comunicaciones Móviles</p>
-    <div class="card">
-    <div class="relleno"></div>
-    
-    
-    <button class="boton-test" onclick="location.href='tema1.html'">Tema 1</button>
-    <button class="boton-test" onclick="location.href='tema2.html'">Tema 2</button>
-    <button class="boton-test" onclick="location.href='tema3.html'">Tema 3</button>
-    <button class="boton-test" onclick="location.href='tema1.html'">Tema 4</button>
-    <button class="boton-test" onclick="location.href='tema2.html'">Tema 5</button>
-    <button class="boton-test" onclick="location.href='tema3.html'">Tema 6</button>
-  
-    </div>
+<body class="animated-bg min-h-screen flex items-center justify-center p-4 text-gray-800">
 
+  <div class="glass-card w-full max-w-4xl rounded-3xl shadow-2xl p-8 md:p-12 text-center transform transition-all hover:scale-[1.01] duration-500">
+    
+    <header class="mb-12">
+      <h1 class="text-5xl md:text-7xl font-bold text-white drop-shadow-md mb-4 tracking-tight">
+        Preguntas RCM
+      </h1>
+      <p class="text-xl text-white/90 font-light tracking-wide">
+        Redes de Comunicaciones Móviles
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Botones de Temas -->
+      <a href="quiz.html?tema=1" class="group relative overflow-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <span class="block text-sm font-semibold text-blue-500 uppercase tracking-wider mb-1">Cuestionario</span>
+          <h2 class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">Tema 1</h2>
+          <div class="mt-4 flex justify-center">
+             <svg class="w-8 h-8 text-gray-300 group-hover:text-blue-500 transition-colors transform group-hover:translate-x-1 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+      </a>
+
+      <a href="quiz.html?tema=2" class="group relative overflow-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <span class="block text-sm font-semibold text-purple-500 uppercase tracking-wider mb-1">Cuestionario</span>
+          <h2 class="text-2xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors">Tema 2</h2>
+          <div class="mt-4 flex justify-center">
+             <svg class="w-8 h-8 text-gray-300 group-hover:text-purple-500 transition-colors transform group-hover:translate-x-1 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+      </a>
+
+      <a href="quiz.html?tema=3" class="group relative overflow-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+        <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <span class="block text-sm font-semibold text-green-500 uppercase tracking-wider mb-1">Cuestionario</span>
+          <h2 class="text-2xl font-bold text-gray-800 group-hover:text-green-600 transition-colors">Tema 3</h2>
+          <div class="mt-4 flex justify-center">
+             <svg class="w-8 h-8 text-gray-300 group-hover:text-green-500 transition-colors transform group-hover:translate-x-1 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+      </a>
+
+       <a href="quiz.html?tema=4" class="group relative overflow-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+        <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <span class="block text-sm font-semibold text-orange-500 uppercase tracking-wider mb-1">Cuestionario</span>
+          <h2 class="text-2xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors">Tema 4</h2>
+          <div class="mt-4 flex justify-center">
+             <svg class="w-8 h-8 text-gray-300 group-hover:text-orange-500 transition-colors transform group-hover:translate-x-1 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+      </a>
+
+       <a href="quiz.html?tema=5" class="group relative overflow-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-blue-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <span class="block text-sm font-semibold text-indigo-500 uppercase tracking-wider mb-1">Cuestionario</span>
+          <h2 class="text-2xl font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">Tema 5</h2>
+          <div class="mt-4 flex justify-center">
+             <svg class="w-8 h-8 text-gray-300 group-hover:text-indigo-500 transition-colors transform group-hover:translate-x-1 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+      </a>
+
+       <a href="quiz.html?tema=6" class="group relative overflow-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+        <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-rose-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <span class="block text-sm font-semibold text-red-500 uppercase tracking-wider mb-1">Cuestionario</span>
+          <h2 class="text-2xl font-bold text-gray-800 group-hover:text-red-600 transition-colors">Tema 6</h2>
+          <div class="mt-4 flex justify-center">
+             <svg class="w-8 h-8 text-gray-300 group-hover:text-red-500 transition-colors transform group-hover:translate-x-1 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    
+    <footer class="mt-12 text-white/60 text-sm">
+      <p>&copy; 2025 Preguntas RCM.</p>
+    </footer>
+  </div>
 
 </body>
 </html>
