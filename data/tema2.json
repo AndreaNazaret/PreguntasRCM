@@ -49,9 +49,9 @@
             "Espectro ensanchado por secuencia directa (DSSS)",
             "Espectro ensanchado por salto de frecuencia (FHSS)",
             "Ortogonal Frequency Division Multiplexing (OFDM)",
-            "Compresión de señal"
+            "DSSS, FHSS, OFDM"
         ],
-        "respuesta_correcta": 1
+        "respuesta_correcta": 4
     },
     {
         "pregunta": "¿Cuál es el protocolo de encriptación usado en WPA2?",
@@ -105,5 +105,236 @@
             "PHY"
         ],
         "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "Según el estándar 802.11, ¿qué subcapa de la capa física se encarga de gestionar los preámbulos, cabeceras y el carrier sensing utilizado por la MAC?",
+        "opciones": [
+            "LLC",
+            "MAC",
+            "PLCP",
+            "PMD",
+            "CCMP"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "¿Cuál es la principal ventaja del uso de OFDM en IEEE 802.11 frente a otras técnicas como FHSS o DSSS?",
+        "opciones": [
+            "Permite una implementación más simple del hardware",
+            "Es menos sensible a retardos y ecos de múltiples trayectorias",
+            "Genera un espectro más estrecho",
+            "Requiere menos sincronización entre dispositivos",
+            "No usa subportadoras"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "En FHSS, ¿qué requisito es indispensable para mantener la comunicación entre transmisor y receptor?",
+        "opciones": [
+            "El uso de canales contiguos",
+            "La transmisión continua en una sola frecuencia",
+            "La sincronización en la secuencia y duración de los saltos",
+            "Un ancho de banda mínimo de 40 MHz",
+            "El uso de OFDM como modulación"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "En DSSS, cada bit se sustituye por una secuencia de chips. ¿Qué consecuencia directa tiene esto?",
+        "opciones": [
+            "Disminuye la resistencia a interferencias",
+            "Aumenta el ancho de banda ocupado",
+            "Reduce el espectro de la señal",
+            "Permite transmitir más bits por símbolo",
+            "Evita completamente el ruido térmico"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "En la banda de 2,4 GHz de IEEE 802.11, ¿por qué sólo se consideran no solapados ciertos canales como 1, 6 y 11?",
+        "opciones": [
+            "Porque utilizan modulación diferente al resto",
+            "Porque su potencia máxima es mayor",
+            "Porque su ancho de banda de 22 MHz exige separaciones de 25 MHz",
+            "Porque solo esos canales están permitidos por ETSI",
+            "Porque emplean OFDM en lugar de DSSS"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "¿Qué característica distingue a 802.11n del resto de estándares previos?",
+        "opciones": [
+            "El uso de FHSS como técnica principal",
+            "La introducción de MIMO y spatial streams",
+            "La eliminación total de compatibilidad con estándares anteriores",
+            "El uso exclusivo de la banda de 2,4 GHz",
+            "El soporte obligatorio de 160 MHz"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "En 802.11n, ¿qué implica el uso opcional de canales de 40 MHz?",
+        "opciones": [
+            "Una reducción del throughput",
+            "Un aumento del número de subportadoras",
+            "Una incompatibilidad total con 802.11a/g",
+            "Una duplicación de la tasa binaria disponible",
+            "Que no puede usarse en interiores"
+        ],
+        "respuesta_correcta": 3
+    },
+    {
+        "pregunta": "¿Qué mejora introduce 802.11ac respecto a 802.11n en la capa física?",
+        "opciones": [
+            "Uso de DSSS como modulación base",
+            "Reducción del número de spatial streams",
+            "Mayor ancho de canal hasta 160 MHz y modulación 256-QAM",
+            "Eliminación total de OFDM",
+            "Uso exclusivo de CCK"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "¿Cuál es la principal novedad de 802.11ax respecto a 802.11ac?",
+        "opciones": [
+            "Uso obligatorio de 40 MHz",
+            "Eliminación de MIMO",
+            "Coloración BSS para reducir interferencias",
+            "Modulación máxima reducida a 64-QAM",
+            "Desaparición de la banda de 5 GHz"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "¿Qué mecanismo de 802.11 permite que un dispositivo consuma menos energía negociando tiempos de actividad específicos?",
+        "opciones": [
+            "RTS/CTS",
+            "Power Beaconing",
+            "Target Wake Time (TWT)",
+            "Beacon Skipping",
+            "Low Duty Cycle Allocation"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "¿Por qué no es posible usar CSMA/CD en redes inalámbricas 802.11?",
+        "opciones": [
+            "Porque el estándar no define colisiones",
+            "Porque las estaciones no pueden escuchar el medio mientras transmiten",
+            "Porque solo hay un canal disponible",
+            "Porque la potencia es demasiado baja",
+            "Porque la antena debe permanecer apagada durante la transmisión"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "¿Qué problema intenta resolver RTS/CTS dentro del funcionamiento DCF?",
+        "opciones": [
+            "La interferencia co-canal",
+            "La limitación de potencia de transmisión",
+            "El problema de terminal oculto",
+            "Los retardos del preámbulo PLCP",
+            "La fragmentación del frame"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "En el proceso de acceso al canal del DCF, ¿qué papel cumple el temporizador de backoff?",
+        "opciones": [
+            "Evitar el envío de beacons repetidos",
+            "Regular el tamaño del payload",
+            "Reducir la probabilidad de colisión mediante pausas aleatorias",
+            "Elegir el canal con menos interferencias",
+            "Alinear la modulación con el AP"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "En las tramas 802.11, ¿qué campo indica si una trama está siendo retransmitida?",
+        "opciones": [
+            "Retry",
+            "More Data",
+            "Subtype",
+            "Duration",
+            "WEP"
+        ],
+        "respuesta_correcta": 0
+    },
+    {
+        "pregunta": "¿Qué método utiliza un dispositivo en el modo de escaneo pasivo para descubrir redes disponibles?",
+        "opciones": [
+            "Envía Probe Requests en cada canal",
+            "Escucha beacons transmitidos por los AP",
+            "Solicita RTS a los AP cercanos",
+            "Interroga directamente la tabla de asociaciones del AP",
+            "Solo analiza la potencia de señal"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "¿Qué tipo de codificación emplean los elementos de información TAGGED en las tramas de gestión 802.11?",
+        "opciones": [
+            "CRC",
+            "TLV (Type Length Value)",
+            "BPSK",
+            "ICV",
+            "CCMP"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "¿Cuál de las siguientes vulnerabilidades forma parte de los problemas clásicos de WEP?",
+        "opciones": [
+            "Uso de AES de 128 bits sin encapsulación",
+            "IV de 24 bits transmitido en claro",
+            "Integridad basada en SHA-1",
+            "Autenticación basada en certificados",
+            "Modulación dependiente de OFDM"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "WPA introduce TKIP como mejora sobre WEP. ¿Cuál es una de sus características principales?",
+        "opciones": [
+            "Uso de modulación QAM para cifrado",
+            "Generación dinámica de claves por trama",
+            "IV reducido respecto a WEP",
+            "Eliminación del servidor 802.1x",
+            "Autenticación mediante CTS"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "WPA2 utiliza CCMP basado en AES. ¿Qué ventaja clave presenta respecto a TKIP?",
+        "opciones": [
+            "Menor uso computacional",
+            "Mejor integridad y confidencialidad mediante cifrado por bloques",
+            "Depende del uso de RC4",
+            "No utiliza claves por usuario",
+            "Permite omitir la autenticación"
+        ],
+        "respuesta_correcta": 1
+    },
+    {
+        "pregunta": "En 802.11e, ¿qué componente introduce un sistema híbrido de coordinación que combina acceso por contención y libre de contención?",
+        "opciones": [
+            "DCF+",
+            "HSS (Hybrid Scheduling System)",
+            "HCF (Hybrid Coordination Function)",
+            "QoS-CSMA",
+            "MACX"
+        ],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "En redes mesh definidas por 802.11s, ¿qué rol desempeñan los nodos relay?",
+        "opciones": [
+            "Separar las bandas de operación",
+            "Evitar el uso de protocolos MAC",
+            "Encaminar paquetes para nodos fuera del alcance del AP",
+            "Reducir la velocidad de modulación para mejorar la seguridad",
+            "Actuar como AP primarios obligatorios"
+        ],
+        "respuesta_correcta": 2
     }
 ]
