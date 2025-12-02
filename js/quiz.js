@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const optionsContainer = document.getElementById('options-container');
     const nextBtn = document.getElementById('next-btn');
     const prevBtn = document.getElementById('prev-btn'); // Optional, if we want to allow going back
-    
+
     // Results elements
     const scoreCorrect = document.getElementById('score-correct');
     const scoreTotal = document.getElementById('score-total');
@@ -57,13 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Note: Adjust path if your structure is different. 
         // Based on file list: data/tema1.json exists.
         const response = await fetch(`data/tema${id}.json`);
-        
+
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         questions = await response.json();
-        
+
         // Initialize user answers array with nulls
         userAnswers = new Array(questions.length).fill(null);
 
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingState.classList.add('hidden');
         questionContainer.classList.remove('hidden');
         nextBtn.classList.remove('hidden');
-        
+
         // Render first question
         renderQuestion(0);
     }
@@ -83,10 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
         questionContainer.classList.add('fade-in');
 
         const question = questions[index];
-        
+
         // Update Counter
         questionCounter.textContent = `Pregunta ${index + 1} de ${questions.length}`;
-        
+
         // Update Progress Bar
         const progress = ((index + 1) / questions.length) * 100;
         progressBar.style.width = `${progress}%`;
@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Render Options
         optionsContainer.innerHTML = '';
-        
+
         question.opciones.forEach((opcion, i) => {
             const btn = document.createElement('button');
-            btn.className = `option-btn w-full text-left p-4 rounded-xl border-2 border-gray-200 bg-white text-gray-700 font-medium text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent relative overflow-hidden`;
-            
+            btn.className = `option-btn w-full text-left p-3 md:p-4 rounded-xl border-2 border-gray-200 bg-white text-gray-700 font-medium text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent relative overflow-hidden`;
+
             // Check if this question was already answered
             if (userAnswers[index] !== null) {
                 // If answered, show state immediately
@@ -119,19 +119,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Add content
             btn.innerHTML = `<span class="mr-2 font-bold text-gray-400">${String.fromCharCode(65 + i)}.</span> ${opcion}`;
-            
+
             optionsContainer.appendChild(btn);
         });
 
         // Update Navigation Buttons
         // prevBtn.style.display = index > 0 ? 'flex' : 'none'; // Uncomment if you want back button
-        
+
         if (index === questions.length - 1) {
             nextBtn.innerHTML = `Finalizar <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
         } else {
             nextBtn.innerHTML = `Siguiente <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>`;
         }
-        
+
         // Disable next button until answered? 
         // For now, let's allow skipping or enforce answering. 
         // Let's enforce answering for better UX in a quiz.
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleAnswer(selectedIndex, questionIndex, btnElement) {
         const question = questions[questionIndex];
-        
+
         // Save answer
         userAnswers[questionIndex] = selectedIndex;
 
@@ -209,10 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update UI
         questionContainer.classList.add('hidden');
         nextBtn.classList.add('hidden');
-        if(prevBtn) prevBtn.classList.add('hidden');
-        
+        if (prevBtn) prevBtn.classList.add('hidden');
+
         resultsContainer.classList.remove('hidden');
-        
+
         scoreCorrect.textContent = score;
         scoreTotal.textContent = total;
         scorePercent.textContent = `${Math.round(percentage)}% Aciertos`;
