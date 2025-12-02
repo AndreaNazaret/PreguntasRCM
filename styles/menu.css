@@ -1,0 +1,125 @@
+body {
+  background: linear-gradient(to top, #9eb0e9 0%, #ffffff 100%);
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column; /* importante para apilar verticalmente */
+  align-items: center;
+  justify-content: center;  /* ← alinea arriba */
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 3rem; /* espacio superior */
+  padding-bottom: 2rem;
+
+}
+
+.titulo {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #293661;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 2rem; /* Espacio entre subtítulo y card */
+    padding-bottom: 0.5rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem 1rem;
+  border-radius: 25px;
+  box-shadow: 0px 15px 40px rgba(0,0,0,0.12), 0px 5px 15px rgba(0,0,0,0.08);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem; 
+  
+}
+
+.relleno {
+  height: 100%;
+  width: 0%;
+  background-color: #343a40; /* gris oscuro */
+  transition: width 0.3s ease;
+}
+
+
+
+
+
+.sign{
+  text-align: center;
+  font-size: 0.8rem; /* Un poco más grande para ser legible, pero aún pequeño */
+  color: #ffffff; 
+  opacity: 0.7; /* Hace el texto un poco transparente para que sea "poco visible" */
+  margin-top: auto; 
+  padding-top: 1rem;
+}
+
+
+.boton-test {
+  width: 90%;   
+  background-color: #33457f;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin: 0.7rem 0;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2); /* Sombra para el botón */
+  transition: all 0.3s ease;
+}
+
+.boton-test:hover {
+  background-color: #436991;
+   transform: translateY(-3px); /* Pequeño levantamiento */
+   box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 1.5rem;
+    margin-top: 1.5 rem;
+    padding: 0 1rem;
+    /*margin-bottom: 0.4rem;*/
+  }
+
+   .subtitulo {
+    font-size: 1rem;
+    margin-bottom: 1.5rem; /* Ajustar margen para móviles */
+  }
+
+   .card {
+    width: 80%;
+    padding: 2rem 1rem;
+    margin: 0 2rem;
+    margin-top: 1rem;
+    /*margin-bottom: 1.5rem; /* Ajustar margen para móviles */
+  }
+
+  .sign {
+    font-size: 0.6rem;
+    padding-top: 0.8rem; 
+    padding-bottom: 0.5rem;
+  }
+
+  .boton-test {
+    width: 95%;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+  }
+
+}
