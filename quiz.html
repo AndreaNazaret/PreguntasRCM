@@ -4,53 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!DOCTYPE html>
-    <html lang="es">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Preguntas RCM - Cuestionario</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles/quiz.css">
-    </head>
+    <title>Preguntas RCM - Cuestionario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/quiz.css">
+</head>
 
 <body class="animated-bg min-h-screen flex items-center justify-center p-2 md:p-4 text-gray-800">
 
     <div
         class="glass-card w-full max-w-3xl rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden flex flex-col min-h-[500px] md:min-h-[600px]">
 
-        <!-- Header -->
         <header class="bg-white/50 p-4 md:p-6 border-b border-gray-100 flex justify-between items-center">
-            <a href="index.html" class="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+            <a id="btn-back-header" href="index.html" class="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
                 <svg class="w-5 h-5 mr-1 md:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
-                <span class="font-semibold text-sm md:text-base">Menú</span>
+                <span id="txt-back-header" class="font-semibold text-sm md:text-base">Menú</span>
             </a>
             <h1 id="quiz-title" class="text-lg md:text-xl font-bold text-gray-800 truncate max-w-[150px] md:max-w-none">
                 Cargando...</h1>
-            <div class="w-16 md:w-20"></div> <!-- Spacer for centering -->
-        </header>
+            <div class="w-16 md:w-20"></div> </header>
 
-        <!-- Progress Bar -->
         <div class="w-full bg-gray-200 h-1.5 md:h-2">
             <div id="progress-bar" class="bg-blue-500 h-1.5 md:h-2 transition-all duration-500 ease-out"
                 style="width: 0%"></div>
         </div>
 
-        <!-- Content Area -->
         <main class="flex-grow p-4 md:p-8 flex flex-col justify-center relative">
 
-            <!-- Loading State -->
             <div id="loading-state" class="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-20">
                 <div class="animate-spin rounded-full h-10 w-10 md:h-12 md:w-12 border-b-2 border-blue-500 mb-4"></div>
                 <p class="text-gray-500 font-medium text-sm md:text-base">Cargando preguntas...</p>
             </div>
 
-            <!-- Question Container -->
             <div id="question-container" class="hidden w-full max-w-2xl mx-auto fade-in">
                 <div class="mb-6 md:mb-8">
                     <span id="question-counter"
@@ -62,11 +50,9 @@
                 </div>
 
                 <div id="options-container" class="space-y-2 md:space-y-3">
-                    <!-- Options will be injected here -->
-                </div>
+                    </div>
             </div>
 
-            <!-- Results Container -->
             <div id="results-container" class="hidden w-full text-center fade-in">
                 <div class="mb-6">
                     <div
@@ -95,7 +81,7 @@
                         class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg hover:shadow-blue-500/30 text-sm md:text-base">
                         Intentar de nuevo
                     </button>
-                    <a href="index.html"
+                    <a id="btn-back-results" href="index.html"
                         class="w-full sm:w-auto px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-bold rounded-xl border border-gray-200 transition-colors shadow-sm hover:shadow-md text-sm md:text-base">
                         Volver al Menú
                     </a>
@@ -104,7 +90,6 @@
 
         </main>
 
-        <!-- Footer / Navigation -->
         <footer class="p-4 md:p-6 border-t border-gray-100 flex justify-between items-center bg-white/30">
             <button id="prev-btn"
                 class="hidden px-3 py-2 md:px-4 text-gray-500 hover:text-gray-800 font-medium transition-colors flex items-center text-sm md:text-base">
@@ -126,6 +111,41 @@
     </div>
 
     <script src="js/quiz.js"></script>
-</body>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Obtener parámetros de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const origen = urlParams.get('origen');
 
+            // 2. Elementos a modificar
+            const btnBackHeader = document.getElementById('btn-back-header');
+            const txtBackHeader = document.getElementById('txt-back-header');
+            const btnBackResults = document.getElementById('btn-back-results');
+
+            // 3. Lógica de redirección
+            if (origen === 'alumnos') {
+                const target = 'menu_alumnos.html';
+                const text = 'Alumnos';
+                
+                btnBackHeader.href = target;
+                txtBackHeader.innerText = text;
+                
+                btnBackResults.href = target;
+                btnBackResults.innerText = "Volver a Alumnos";
+            } 
+            else if (origen === 'general') {
+                const target = 'menu_general.html';
+                const text = 'General';
+                
+                btnBackHeader.href = target;
+                txtBackHeader.innerText = text;
+                
+                btnBackResults.href = target;
+                btnBackResults.innerText = "Volver a General";
+            }
+            // Si no hay parámetro, se queda con el default (index.html)
+        });
+    </script>
+</body>
 </html>

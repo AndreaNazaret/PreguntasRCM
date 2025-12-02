@@ -13,7 +13,6 @@
       overflow: hidden;
     }
 
-    /* VIDEO DE FONDO */
     #bg-video {
       position: fixed;
       right: 0;
@@ -24,7 +23,6 @@
       object-fit: cover;
     }
 
-    /* CAPA OSCURA (gradiente para que se lea mejor el texto) */
     .video-overlay {
       position: fixed;
       top: 0;
@@ -35,42 +33,21 @@
       z-index: -5;
     }
 
-    /* ESTILO DEL MENÚ DESPLEGABLE (Modal) */
     .menu-modal {
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       -webkit-backdrop-filter: blur(15px);
       backdrop-filter: blur(15px);
     }
 
-    /* Animación de entrada del menú */
-    .scale-up-enter {
-      transform: scale(0.95);
-      opacity: 0;
-    }
-
-    .scale-up-enter-active {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    /* Botón brillante */
     .glow-btn {
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
       animation: pulse-glow 2s infinite;
     }
 
     @keyframes pulse-glow {
-      0% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
-      }
-
-      70% {
-        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
-      }
-
-      100% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-      }
+      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
     }
   </style>
 </head>
@@ -98,9 +75,7 @@
   </button>
 
   <main class="text-center z-10 px-4" id="main-screen">
-    <h1 class="text-6xl md:text-9xl font-bold tracking-tighter mb-2 drop-shadow-2xl">
-      RCM
-    </h1>
+    <h1 class="text-6xl md:text-9xl font-bold tracking-tighter mb-2 drop-shadow-2xl">RCM</h1>
     <p class="text-xl md:text-2xl font-light tracking-widest uppercase mb-12 drop-shadow-lg opacity-90">
       Redes de Comunicaciones Móviles
     </p>
@@ -111,13 +86,11 @@
     </button>
   </main>
 
-
   <div id="menu-overlay"
     class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center backdrop-blur-sm opacity-0 transition-opacity duration-300">
-
     <div id="menu-card"
       class="bg-white/90 backdrop-blur-xl w-full max-w-md rounded-3xl p-8 shadow-2xl transform scale-95 transition-transform duration-300 relative mx-4">
-
+      
       <button onclick="closeMenu()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -128,14 +101,10 @@
 
       <div class="space-y-4">
         <a href="menu_alumnos.html" class="block w-full group">
-          <div
-            class="bg-gradient-to-r from-teal-500 to-emerald-500 p-1 rounded-2xl hover:scale-[1.02] transition-transform duration-200">
+          <div class="bg-gradient-to-r from-teal-500 to-emerald-500 p-1 rounded-2xl hover:scale-[1.02] transition-transform duration-200">
             <div class="bg-white rounded-xl p-4 flex items-center gap-4">
               <div class="bg-teal-100 p-3 rounded-full text-teal-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z">
-                  </path>
-                </svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path></svg>
               </div>
               <div>
                 <h3 class="font-bold text-gray-800 text-lg">Alumnos RCM</h3>
@@ -146,15 +115,10 @@
         </a>
 
         <a href="menu_general.html" class="block w-full group">
-          <div
-            class="bg-gradient-to-r from-purple-500 to-pink-500 p-1 rounded-2xl hover:scale-[1.02] transition-transform duration-200">
+          <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-1 rounded-2xl hover:scale-[1.02] transition-transform duration-200">
             <div class="bg-white rounded-xl p-4 flex items-center gap-4">
               <div class="bg-purple-100 p-3 rounded-full text-purple-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
-                  </path>
-                </svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
               </div>
               <div>
                 <h3 class="font-bold text-gray-800 text-lg">Alumnos + Otras</h3>
@@ -164,17 +128,14 @@
           </div>
         </a>
       </div>
-
     </div>
   </div>
 
   <script>
-    // Lógica del Sonido
     function toggleSound() {
       const video = document.getElementById("bg-video");
       const iconMute = document.getElementById("iconMute");
       const iconSound = document.getElementById("iconSound");
-
       if (video.muted) {
         video.muted = false;
         iconMute.classList.add("hidden");
@@ -187,20 +148,17 @@
       }
     }
 
-    // Lógica del Menú Desplegable
     const menuOverlay = document.getElementById('menu-overlay');
     const menuCard = document.getElementById('menu-card');
     const mainScreen = document.getElementById('main-screen');
 
-    // Expose functions to global scope for inline onclick
     window.openMenu = function () {
       menuOverlay.classList.remove('hidden');
-      // Pequeño delay para permitir que el navegador procese el 'display:block' antes de animar opacidad
       setTimeout(() => {
         menuOverlay.classList.remove('opacity-0');
         menuCard.classList.remove('scale-95');
         menuCard.classList.add('scale-100');
-        mainScreen.classList.add('blur-sm'); // Difumina el texto de fondo
+        mainScreen.classList.add('blur-sm');
       }, 10);
     };
 
@@ -209,21 +167,14 @@
       menuCard.classList.remove('scale-100');
       menuCard.classList.add('scale-95');
       mainScreen.classList.remove('blur-sm');
-
-      // Esperar a que termine la transición para ocultar
       setTimeout(() => {
         menuOverlay.classList.add('hidden');
       }, 300);
     };
 
-    // Cerrar menú si clickas fuera de la tarjeta
     menuOverlay.addEventListener('click', function (e) {
-      if (e.target === menuOverlay) {
-        window.closeMenu();
-      }
+      if (e.target === menuOverlay) { window.closeMenu(); }
     });
   </script>
-
 </body>
-
 </html>

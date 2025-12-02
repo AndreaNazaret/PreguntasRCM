@@ -24,28 +24,62 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentQuestionIndex = 0;
     let userAnswers = []; // Almacena si el usuario acertó (true) o falló (false) o null
     let score = 0;
+    let originSource = null; // Para guardar de dónde venimos
 
     // --- Initialization ---
     init();
 
     async function init() {
+        // 1. Get Params
         const urlParams = new URLSearchParams(window.location.search);
         currentThemeId = urlParams.get('tema');
+        originSource = urlParams.get('origen'); // 'alumnos' o 'general'
 
+        // Lógica de Navegación "Volver"
+        const headerBackLink = document.getElementById('header-back-link');
+        const resultBackLink = document.getElementById('result-back-link');
+        
+        // Definir a dónde volvemos
+        let backUrl = 'index.html'; // Default
+        let backText = 'Inicio';
+
+        if (originSource === 'alumnos') {
+            backUrl = 'menu_alumnos.html';
+            backText = 'Menú Alumnos';
+        } else if (originSource === 'general') {
+            backUrl = 'menu_general.html';
+            backText = 'Menú General';
+        }
+
+        // Aplicar a los botones
+        if(headerBackLink) {
+            headerBackLink.href = backUrl;
+            headerBackLink.querySelector('span').textContent = backText;
+        }
+        if(resultBackLink) {
+            resultBackLink.href = backUrl;
+        }
+
+        // 2. Validar Tema
         if (!currentThemeId) {
-            alert('No se especificó un tema. Redirigiendo al menú.');
-            window.location.href = 'index.html';
+            alert('No se especificó un tema. Redirigiendo.');
+            window.location.href = backUrl;
             return;
         }
 
         quizTitle.textContent = `Tema ${currentThemeId}`;
 
+        // 3. Cargar Datos
         try {
+            // NOTA: Si tienes JSON diferentes para alumnos y general,
+            // puedes usar la variable originSource para cambiar la ruta del fetch.
+            // Ejemplo: const path = originSource === 'alumnos' ? `data/alumnos/tema${currentThemeId}.json` : `data/tema${currentThemeId}.json`;
+            
             await loadQuestions(currentThemeId);
         } catch (error) {
             console.error(error);
             quizTitle.textContent = 'Error';
-            loadingState.innerHTML = `<p class="text-red-500">Error al cargar las preguntas. <br> <a href="index.html" class="underline">Volver</a></p>`;
+            loadingState.innerHTML = `<p class="text-red-500">Error al cargar. <br> <a href="${backUrl}" class="underline">Volver</a></p>`;
         }
     }
 
