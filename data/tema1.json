@@ -1,0 +1,249 @@
+[
+  {
+    "pregunta": "¿Cuáles de las siguientes son técnicas de acceso múltiple conocidas dentro del grupo de acceso aleatorio?",
+    "opciones": ["ALOHA", "Slotted ALOHA", "CSMA, CSMA/CD y CSMA/CA", "Todas las anteriores", "Ninguna de las anteriores"],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "En CDMA, ¿cuál es el papel de la ortogonalización de los códigos asignados a los usuarios?",
+    "opciones": ["Minimizar interferencias entre transmisiones distintas", "Aumentar la potencia de la señal transmitida", "Reducir la necesidad de sincronización entre usuarios", "Todas las anteriores", "Ninguna de las anteriores"],
+    "respuesta_correcta": 0
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes modos de explotación permite transmitir información en ambas direcciones pero no simultáneamente?",
+    "opciones": ["Simplex", "Duplex", "Semiduplex", "Multiplex", "Ninguna de las anteriores"],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuántas direcciones de transmisión existen en el modo Simplex?",
+    "opciones": ["Dos direcciones simultáneas", "Dos direcciones alternas", "Una sola dirección", "Ninguna dirección", "Ilimitadas direcciones"],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes opciones describe correctamente un sistema simplex?",
+    "opciones": [
+      "La comunicación ocurre en ambos sentidos pero solo de manera alternada",
+      "La comunicación ocurre en ambos sentidos de forma simultánea",
+      "La comunicación ocurre en un único sentido, sin retorno",
+      "No existe comunicación entre emisor y receptor"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "En un sistema semidúplex (half-duplex), la característica principal es:",
+    "opciones": [
+      "Ambas partes pueden transmitir al mismo tiempo",
+      "Solo un equipo puede transmitir a la vez, alternando entre emisor y receptor",
+      "Ninguno de los equipos puede recibir datos",
+      "Permite transmisión solo en un sentido permanentemente"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes frases es correcta acerca de TDMA?",
+    "opciones": [
+      "Se accede al canal por rondas",
+      "Cada nodo tiene asignado un slot de tiempo en cada ronda",
+      "La longitud del slot suele ser el tiempo de transmisión de un paquete máximo",
+      "Los slots sin transmisión no pueden ser usados por otros nodos",
+      "Todas las opciones son correctas"
+    ],
+    "respuesta_correcta": 4
+  },
+  {
+    "pregunta": "¿En qué consiste el Path Loss?",
+    "opciones": [
+      "La señal llega en distintos instantes debido a reflexiones",
+      "La señal de radio se atenúa al propagarse por el aire",
+      "Interferencias por compartir la misma frecuencia",
+      "Distorsión por movimiento entre transmisor y receptor"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál es una característica diferencial del modo infraestructura frente al modo ad-hoc?",
+    "opciones": [
+      "El acceso al medio se coordina solo mediante protocolos distribuidos",
+      "Los nodos pueden conectarse a una red cableada mediante estaciones base",
+      "La comunicación solo se da entre nodos dentro de la misma área de cobertura",
+      "La red se organiza de manera autónoma sin dispositivos adicionales",
+      "No existe posibilidad de cambiar de estación base al desplazarse"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "En el modo ad-hoc de una red inalámbrica:",
+    "opciones": [
+      "Existen estaciones base que gestionan la comunicación",
+      "Los nodos solo transmiten a los que están dentro del área de cobertura",
+      "Los nodos dependen de la red cableada para organizarse",
+      "El handoff es imprescindible",
+      "La red se organiza mediante un servidor central"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes problemas es característico de redes inalámbricas y no de redes cableadas?",
+    "opciones": ["Latencia de propagación", "Efecto de terminal oculto", "Saturación del canal", "Retardo en la conmutación"],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Qué modo de red inalámbrica permite comunicación directa sin punto de acceso?",
+    "opciones": ["Red de infraestructura", "Red dúplex", "Red semidúplex", "Red ad-hoc"],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "¿Qué término describe el flujo saliente de energía en forma de ondas, incluso no deseadas?",
+    "opciones": ["Emisión", "Propagación de señal", "Radiaciones parásitas", "Modulación de onda"],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Qué elemento de una red inalámbrica envía paquetes entre la red cableada y los terminales inalámbricos?",
+    "opciones": ["Antena", "Enlace inalámbrico", "Nodo inalámbrico", "Estación base"],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "¿Cuál afirmación es correcta acerca de la propagación en redes inalámbricas?",
+    "opciones": [
+      "El medio inalámbrico no presenta pérdidas",
+      "La señal se atenúa al propagarse (Path Loss)",
+      "No existen interferencias",
+      "Las señales llegan siempre al mismo tiempo",
+      "Ninguna de las anteriores"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Qué dispositivo conecta nodos móviles con la red cableada?",
+    "opciones": ["Antena", "Enlace inalámbrico", "Estación base", "Nodo inalámbrico", "Router de usuario"],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál es la eficiencia máxima teórica de Slotted ALOHA?",
+    "opciones": ["18%", "25%", "37%", "50%", "80%"],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Qué principio sigue CSMA?",
+    "opciones": [
+      "Transmisión sin coordinación",
+      "Cada nodo transmite en una frecuencia distinta",
+      "Escuchar el canal antes de transmitir",
+      "Utilizar un código único por nodo",
+      "Dividir el canal en intervalos de tiempo"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "En comunicaciones inalámbricas, ¿por qué la movilidad del usuario obliga a adaptar dinámicamente la capa física?",
+    "opciones": [
+      "Porque la movilidad incrementa la potencia recibida y provoca saturación",
+      "Porque la movilidad modifica el SNR, afectando la modulación y la tasa de transmisión óptima",
+      "Porque el canal deja de ser compartido cuando el usuario se desplaza",
+      "Porque las antenas no pueden recibir señal cuando hay movimiento",
+      "Porque las colisiones dejan de poder detectarse en movimiento"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "Según el análisis de SNR vs BER, ¿qué implicación tiene incrementar la potencia transmitida manteniendo la misma modulación?",
+    "opciones": [
+      "Aumenta el BER y reduce el throughput",
+      "Disminuye el SNR y aumenta las pérdidas por Path Loss",
+      "Aumenta el SNR y reduce el BER",
+      "No modifica el rendimiento porque el BER es independiente de la potencia",
+      "Solo afecta a la sincronización de los nodos"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál es la causa principal por la que múltiples rutas de propagación (multipath) degradan la señal en un receptor inalámbrico?",
+    "opciones": [
+      "Provocan interferencias destructivas al llegar señales en distintos instantes",
+      "Aumentan la velocidad de transmisión más allá de lo soportado",
+      "Aumentan artificialmente el SNR",
+      "Permiten al receptor obtener una señal más limpia",
+      "Evitan completamente las colisiones"
+    ],
+    "respuesta_correcta": 0
+  },
+  {
+    "pregunta": "En el contexto de CSMA/CD, ¿por qué la eficiencia aumenta cuando t_trans >> t_prop?",
+    "opciones": [
+      "Porque las colisiones se vuelven imposibles",
+      "Porque el retardo de propagación se hace despreciable respecto al tiempo de transmisión",
+      "Porque el canal se divide en slots temporales más pequeños",
+      "Porque los nodos pueden transmitir sin realizar carrier sensing",
+      "Porque el algoritmo deja de utilizar exponential backoff"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Qué efecto tiene un alto retardo de propagación en el rendimiento de CSMA (sin detección de colisiones)?",
+    "opciones": [
+      "Reduce la probabilidad de colisiones",
+      "Incrementa la probabilidad de que dos nodos crean que el canal está libre simultáneamente",
+      "Reduce la capacidad del canal debido a la fragmentación en frecuencia",
+      "Evita el problema de terminales ocultos",
+      "Permite detectar colisiones con menor tiempo de escucha"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Por qué CSMA/CA requiere ACK para confirmar la recepción de frames?",
+    "opciones": [
+      "Porque las colisiones se detectan directamente en la capa física",
+      "Porque el problema de terminal oculto impide detectar colisiones de manera fiable",
+      "Porque el protocolo exige retransmitir todos los frames, recibidos o no",
+      "Porque la capa de enlace utiliza modulación adaptativa",
+      "Porque solo funciona en redes cableadas"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "En CDMA, ¿qué consecuencia tiene que los códigos asignados a los usuarios no sean perfectamente ortogonales?",
+    "opciones": [
+      "Se incrementa la interferencia entre usuarios y disminuye la capacidad del sistema",
+      "Los usuarios no pueden transmitir simultáneamente",
+      "El receptor no puede aplicar la operación de decodificación por correlación",
+      "Las señales dejan de poder sumarse en el canal",
+      "La modulación se vuelve incompatible con el medio inalámbrico"
+    ],
+    "respuesta_correcta": 0
+  },
+  {
+    "pregunta": "En FDMA, ¿por qué los canales sin transmisión no pueden reutilizarse dinámicamente por otros usuarios?",
+    "opciones": [
+      "Porque la asignación de bandas de frecuencia es estática",
+      "Porque la modulación lo impide",
+      "Porque el sistema requiere sincronización en el dominio del tiempo",
+      "Porque los códigos de usuario deben coincidir",
+      "Porque los nodos no pueden detectar colisiones"
+    ],
+    "respuesta_correcta": 0
+  },
+  {
+    "pregunta": "Según el modelo de propagación en espacio libre, ¿qué ocurre con la pérdida básica de propagación Lb al duplicar la distancia entre emisor y receptor?",
+    "opciones": [
+      "Aumenta en 3 dB",
+      "Aumenta en 6 dB",
+      "Permanece constante",
+      "Disminuye en función logarítmica",
+      "Depende exclusivamente de la potencia de transmisión"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál es una ventaja clave del modo multihop en redes inalámbricas sin infraestructura?",
+    "opciones": [
+      "Permite evitar interferencias al eliminar la propagación multipath",
+      "Aumenta la cobertura permitiendo que nodos intermedios actúen como relay",
+      "Elimina la necesidad de protocolos de acceso múltiple",
+      "Permite comunicación simultánea sin colisiones garantizadas",
+      "No requiere consumo energético adicional en los nodos"
+    ],
+    "respuesta_correcta": 1
+  }
+
+
+]
