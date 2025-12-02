@@ -57,18 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Note: Adjust path if your structure is different. 
         // Based on file list: data/tema1.json exists.
         const response = await fetch(`data/tema${id}.json`);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        questions = await response.json();
-
-        // Initialize user answers array with nulls
-        userAnswers = new Array(questions.length).fill(null);
-
-        // Hide loading, show quiz
-        loadingState.classList.add('hidden');
         questionContainer.classList.remove('hidden');
         nextBtn.classList.remove('hidden');
 
