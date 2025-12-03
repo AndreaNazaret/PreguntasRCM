@@ -1,0 +1,170 @@
+[
+  {
+    "pregunta": "¿Cuál es una característica de los satélites LEO?",
+    "opciones": [
+      "Permanecen fijos en el cielo",
+      "Tienen un gran retardo por distancia",
+      "Tienen menor retardo satelital por su baja altura",
+      "Ninguna de las anteriores"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Qué elemento suele necesitar una red VSAT para permitir la comunicación entre dos terminales?",
+    "opciones": [
+      "Repetidor LTE",
+      "Fibra óptica",
+      "Una estación hub en tierra",
+      "Un router doméstico"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál es el mecanismo de control de acceso al medio que utilizan las redes inalámbricas IEEE 802.11 para gestionar el uso del canal y minimizar las colisiones?",
+    "opciones": [
+      "CSMA/CD (Carrier Sense Multiple Access with Collision Detection)",
+      "CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance)",
+      "Token Ring",
+      "TDMA (Time Division Multiple Access)"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "Dentro de la arquitectura IEEE 802.11, ¿cómo se denomina el modo de operación en el que todas las comunicaciones entre los dispositivos inalámbricos (estaciones) pasan necesariamente a través de un Punto de Acceso (AP)?",
+    "opciones": [
+      "Modo Ad-Hoc",
+      "Modo Mesh (Malla)",
+      "Modo Infraestructura",
+      "Modo Directo (Wi-Fi Direct)"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál es una característica fundamental de la órbita geoestacionaria (GEO) que se encuentra en el \"Cinturón de Clarke\"?",
+    "opciones": [
+      "Los satélites orbitan a una altura de 750 km y se mueven rápidamente respecto a la Tierra",
+      "Se encuentra a una altura aproximada de 35.786 km y el periodo orbital coincide con la rotación de la Tierra",
+      "Es una órbita polar utilizada principalmente por la constelación Iridium",
+      "Tiene un retardo de señal despreciable, inferior a 20 ms"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "En la capa física de WiMAX, ¿por qué se utiliza preferentemente el modo TDD (Time-Division Duplex) frente al FDD?",
+    "opciones": [
+      "Porque TDD permite transmitir y recibir simultáneamente en dos frecuencias distintas",
+      "Porque TDD es obligatorio en las bandas licenciadas de alta frecuencia",
+      "Porque TDD permite un mejor aprovechamiento del espectro al compartir el mismo canal de RF para DL y UL, adaptando la relación de tiempo según el tráfico",
+      "Porque FDD introduce un retardo demasiado alto para las aplicaciones de voz"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes técnicas de acceso múltiple asigna períodos de transmisión fijos a cada terminal?",
+    "opciones": [
+      "FDMA",
+      "TDMA",
+      "CDMA",
+      "MF-TDMA"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Qué tipo de transmisión realizan naturalmente los satélites GEO?",
+    "opciones": [
+      "Unicast",
+      "Broadcast",
+      "Punto a punto",
+      "Solo multicast"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "Las estaciones VSAT normalmente necesitan un “hub” porque:",
+    "opciones": [
+      "No pueden comunicarse con antenas terrestres",
+      "No tienen suficiente potencia para comunicarse directamente entre sí vía satélite",
+      "Solo permiten comunicación unidireccional",
+      "Tienen exceso de ancho de banda",
+      "Transmiten únicamente en banda Ka"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "En WiMAX, el estándar 802.16e introduce principalmente:",
+    "opciones": [
+      "Enlaces LOS exclusivamente",
+      "Mejora de antenas parabólicas",
+      "Incremento de potencia de transmisión",
+      "Movilidad (hasta ~120 km/h)",
+      "Canales FDMA únicamente"
+    ],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "Según los estándares del ETSI mencionados en el temario para redes de acceso por satélite, ¿qué estándar se utiliza específicamente para implementar el canal de retorno?",
+    "opciones": [
+      "DVB-S2",
+      "DVB-RCS (Return Channel by Satellite)",
+      "DVB-SH",
+      "DVB-T",
+      "IEEE 802.16"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "En la subcapa de convergencia (CS) de la capa MAC de IEEE 802.16 (WiMAX), ¿qué categoría de Calidad de Servicio (QoS) se define para servicios donde no se requiere una tasa de bits mínima y el retardo no es crítico (como el email)?",
+    "opciones": [
+      "UGS (Unsolicited Grant Service)",
+      "rtPS (Real-time Polling Service)",
+      "nrtPS (Non-real time Polling Service)",
+      "BE (Best Effort)",
+      "CBR (Constant Bit Rate)"
+    ],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "¿En cuál de las siguientes bandas de frecuencias comerciales se realizan la gran mayoría de emisiones de televisión por satélite?",
+    "opciones": [
+      "Banda L",
+      "Banda C",
+      "Banda Ku",
+      "Banda Ka",
+      "Banda X"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "En la capa MAC de IEEE 802.16 (WiMAX), ¿qué identificador de 16 bits se utiliza para identificar de forma única a cada conexión?",
+    "opciones": [
+      "MAC Address (48 bits)",
+      "Connection Identifier (CID)",
+      "Service Flow ID (SFID)",
+      "IP Address",
+      "Header Check Sequence (HCS) (8 bits)"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál es la principal característica de los satélites en órbita LEO (Low Earth Orbit) que los hace ideales para reducir el retardo en la comunicación?",
+    "opciones": [
+      "Permanecen fijos en el cielo sobre un punto de la Tierra",
+      "Utilizan la costosa Banda Ku exclusivamente",
+      "Se encuentran a una altura aproximada de 35.786 km",
+      "Su baja altura reduce drásticamente el tiempo que tarda la señal en viajar",
+      "Solo se utilizan para televisión por cable"
+    ],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "En el contexto de las redes como WiMAX (IEEE 802.16) y la gestión de tráfico, ¿qué significan las siglas QoS?",
+    "opciones": [
+      "Quality of Signal Strength",
+      "Quad Operating System",
+      "Quality of Service (Calidad de Servicio)",
+      "Quick Opening Standard",
+      "Query Output System"
+    ],
+    "respuesta_correcta": 2
+  }
+]

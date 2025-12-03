@@ -1,0 +1,167 @@
+[
+  {
+    "pregunta": "¿Qué caracteriza a una red Ad-Hoc?",
+    "opciones": [
+      "Siempre utiliza cables para comunicarse",
+      "Requiere un router central obligatorio",
+      "No tiene infraestructura fija y los nodos pueden moverse",
+      "Solo permite comunicación a un salto"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuándo se busca una ruta en un protocolo reactivo?",
+    "opciones": [
+      "Cada cierto tiempo, aunque no haga falta",
+      "Siempre al iniciar la red",
+      "Solo cuando un nodo necesita enviar datos",
+      "Antes de que los nodos se conecten"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál es la función principal de un Punto de Acceso (Access Point) en una red inalámbrica Wi-Fi en modo infraestructura?",
+    "opciones": [
+      "Servir únicamente como cortafuegos (firewall) para evitar virus",
+      "Actuar como puente central para conectar los dispositivos inalámbricos a la red cableada",
+      "Generar energía eléctrica para los ordenadores conectados",
+      "Impedir que cualquier dispositivo se conecte a Internet"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "En el contexto de los protocolos de encaminamiento (routing), ¿qué es el \"número de saltos\" (hop count)?",
+    "opciones": [
+      "El número de veces que se reinicia el router",
+      "La cantidad de cables que tiene conectados un ordenador",
+      "El número de routers por los que debe pasar un paquete de datos para llegar a su destino",
+      "La velocidad a la que viajan los datos por la fibra óptica"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "En el contexto de Mobile IP, ¿cuál es la función del Home Agent (HA)?",
+    "opciones": [
+      "Es el router en la red visitada que asigna la dirección temporal (COA)",
+      "Es el nodo con el que se está comunicando el dispositivo móvil",
+      "Es el sistema en la red original del nodo móvil que registra su localización actual y le reenvía los datagramas",
+      "Es el protocolo encargado de asignar direcciones IP dinámicas en redes locales"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "En las redes Ad-Hoc, ¿cuál es la característica principal de los protocolos de encaminamiento reactivos (on-demand)?",
+    "opciones": [
+      "Mantienen tablas de enrutamiento completas de toda la red en todo momento",
+      "Envían mensajes de control periódicos para verificar el estado de los enlaces",
+      "Utilizan siempre un servidor centralizado para calcular las rutas",
+      "La ruta se descubre y calcula solo cuando es necesaria para enviar un paquete"
+    ],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "¿Cuál es una función principal del Foreign Agent (FA) en Mobile IP?",
+    "opciones": [
+      "Asignar al móvil su dirección permanente en la red de origen",
+      "Reenviar (túnelar) los paquetes entre el Home Agent y el Mobile Node en la red visitada",
+      "Almacenar la tabla global de movilidad de todos los nodos móviles",
+      "Generar los números de secuencia usados para la autenticación"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál es una característica de los protocolos de encaminamiento proactivos en redes ad-hoc?",
+    "opciones": [
+      "Sólo descubren rutas cuando se necesitan",
+      "Envían mensajes de control periódicamente para mantener las tablas actualizadas",
+      "No almacenan rutas hacia ningún destino",
+      "Generan menos tráfico de control que los protocolos reactivos"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "La Care-of Address (COA) representa:",
+    "opciones": [
+      "La dirección privada del MN",
+      "La dirección del CN",
+      "La dirección del router origen",
+      "La dirección temporal del MN en la red visitada",
+      "El punto de retorno del túnel TCP"
+    ],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "OLSR reduce la inundación de mensajes a través de:",
+    "opciones": [
+      "Algoritmos de compresión",
+      "Árboles de expansión",
+      "Multipoint Relays (MPR)",
+      "Direccionamiento circular",
+      "VPN automática"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "En el protocolo Mobile IP, ¿qué mecanismos se utilizan para que el Nodo Móvil (MN) descubra si se encuentra en su red local o en una red externa?",
+    "opciones": [
+      "Mediante consultas al servidor DNS y DHCP",
+      "Mediante los mensajes de Anuncio de Agente (Agent Advertisement) y Solicitud de Agente (Agent Solicitation)",
+      "Comprobando si la dirección MAC del router coincide con la suya",
+      "Esperando a recibir un mensaje de error ICMP tipo 3",
+      "Mediante el protocolo de resolución de direcciones ARP inverso"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "En el protocolo DSDV, durante el proceso de \"Selección de rutas\", ¿qué se consigue al elegir la ruta con el mayor número de secuencia al destino?",
+    "opciones": [
+      "Se incrementa el tráfico en la red cuando no hay cambios",
+      "Se asegura que siempre se utiliza la información más reciente al destino",
+      "Se fija la métrica a infinito",
+      "Se reduce el número de actualizaciones en caso de misma ruta",
+      "Se evita el uso de actualizaciones periódicas"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes términos se refiere al nodo en la red de origen del dispositivo móvil (MN) que se encarga de registrar su ubicación actual y le reenvía los paquetes de datos cuando está fuera de casa?",
+    "opciones": [
+      "Mobile Node (MN)",
+      "Correspondent Node (CN)",
+      "Foreign Agent (FA)",
+      "Home Agent (HA)"
+    ],
+    "respuesta_correcta": 3
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes es un problema fundamental y característico que se presenta en las redes inalámbricas Ad-Hoc debido a su naturaleza dinámica y sin infraestructura fija?",
+    "opciones": [
+      "El exceso de consumo eléctrico de los routers fijos",
+      "El problema del enrutamiento triangular (propio de Mobile IP)",
+      "La necesidad de un mecanismo constante para el mantenimiento de rutas",
+      "La incompatibilidad con el protocolo TCP/IP"
+    ],
+    "respuesta_correcta": 2
+  },
+  {
+    "pregunta": "¿Cuál es la característica principal que define una Red Inalámbrica Ad-Hoc?",
+    "opciones": [
+      "Solo puede usarse para enviar correos electrónicos",
+      "Funciona sin una infraestructura fija o un punto de acceso central",
+      "Requiere que todos los nodos estén conectados por cable",
+      "Solo permite la comunicación con satélites"
+    ],
+    "respuesta_correcta": 1
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes términos describe mejor la ausencia de un router central o Punto de Acceso fijo que gestione y controle todas las comunicaciones en una red Ad-Hoc?",
+    "opciones": [
+      "Modo Infraestructura",
+      "Control Centralizado",
+      "Sin Infraestructura",
+      "Modo de Enlace Fijo",
+      "Red Geográfica Amplia (WAN)"
+    ],
+    "respuesta_correcta": 2
+  }
+]
