@@ -232,6 +232,9 @@ document.addEventListener('DOMContentLoaded', () => {
             div.appendChild(label);
         }
 
+
+        
+
         let rawPoints = correctCount - (incorrectCount * PENALTY);
         if (rawPoints < 0) rawPoints = 0;
         

@@ -69,10 +69,18 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
-                    <button onclick="location.reload()" class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg hover:shadow-blue-500/30 text-sm md:text-base">
+                    <button id="btn-retry-incorrect" class="hidden w-full sm:w-auto px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-colors shadow-lg hover:shadow-orange-500/30 text-sm md:text-base flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        Repetir fallos
+                    </button>
+
+                    <button onclick="location.reload()"
+                        class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg hover:shadow-blue-500/30 text-sm md:text-base">
                         Intentar de nuevo
                     </button>
-                    <a id="btn-back-results" href="index.html" class="w-full sm:w-auto px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-bold rounded-xl border border-gray-200 transition-colors shadow-sm hover:shadow-md text-sm md:text-base">
+        
+                    <a id="btn-back-results" href="index.html"
+                        class="w-full sm:w-auto px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-bold rounded-xl border border-gray-200 transition-colors shadow-sm hover:shadow-md text-sm md:text-base">
                         Volver al Menú
                     </a>
                 </div>
@@ -131,6 +139,7 @@
 
                 <div class="w-full md:w-2/3 h-1/2 md:h-full bg-gray-200 relative">
                     <iframe id="pdf-frame" src="" class="w-full h-full border-0" title="Visor PDF"></iframe>
+                    
                     
                     <div id="pdf-loading" class="absolute inset-0 flex flex-col items-center justify-center text-gray-500 -z-10">
                         <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-600 mb-2"></div>

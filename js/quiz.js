@@ -11,7 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('next-btn');
     const prevBtn = document.getElementById('prev-btn');
     
-    // Botón PDF en el footer
+    // --- ELEMENTO NUEVO: Botón Repetir Incorrectas ---
+    const retryIncorrectBtn = document.getElementById('btn-retry-incorrect');
+    
+    // Botón PDF en el footer (Modo Manual)
     const pdfBtn = document.getElementById('pdf-btn');
 
     // Elementos del Modal PDF (Vista Dividida)
@@ -125,8 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
         void questionContainer.offsetWidth; 
         questionContainer.classList.add('fade-in');
 
-        // Ocultar botón PDF al cambiar de pregunta
-        pdfBtn.classList.add('hidden');
+        // Ocultar botón PDF al cambiar de pregunta (hasta que responda)
+        if(pdfBtn) pdfBtn.classList.add('hidden');
         
         const question = questions[index];
 
@@ -177,8 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 btn.disabled = true;
                 
-                // Si la pregunta ya estaba respondida (ej. al volver atrás), mostramos el botón PDF
-                if(question.pagina) {
+                // Si la pregunta ya estaba respondida, mostramos el botón PDF si aplica
+                if(question.pagina && pdfBtn) {
                     pdfBtn.classList.remove('hidden');
                     pdfBtn.onclick = () => openPdf(question.pagina);
                 }
@@ -232,17 +235,16 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'hidden');
 
         // Mostrar Botón PDF Manualmente
-        if (question.pagina) {
+        if (question.pagina && pdfBtn) {
             pdfBtn.classList.remove('hidden');
             pdfBtn.onclick = () => openPdf(question.pagina);
         }
     }
 
-    // --- FUNCIONES DEL MODAL PDF ---
+    // --- FUNCIONES DEL MODAL PDF (Split View) ---
     
     window.openPdf = function(pagina) {
         const id = currentThemeId || '1'; 
-        // IMPORTANTE: Asegúrate de tener Tema1.pdf, Tema2.pdf, etc.
         const pdfPath = `pdfs/Tema${id}.pdf#page=${pagina}`; 
         
         // 1. Cargar PDF
@@ -257,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
             qTitle.className = "text-lg font-bold text-gray-800 mb-4 leading-tight";
             qTitle.textContent = questionText.textContent;
             
-            // Clonar opciones
+            // Clonar opciones (para mostrar contexto visual con colores)
             const optionsClone = optionsContainer.cloneNode(true);
             
             modalQuestionContent.appendChild(qTitle);
@@ -275,6 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
+
     nextBtn.onclick = () => {
         if (currentQuestionIndex < questions.length - 1) {
             currentQuestionIndex++;
@@ -286,9 +289,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showResults() {
         score = 0;
+        // Array para guardar las preguntas que el usuario falló
+        const incorrectQuestions = [];
+
         userAnswers.forEach((answerIndex, index) => {
             if (answerIndex === questions[index].respuesta_correcta) {
                 score++;
+            } else {
+                // Guardamos el objeto pregunta fallada
+                incorrectQuestions.push(questions[index]);
             }
         });
 
@@ -297,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         questionContainer.classList.add('hidden');
         nextBtn.classList.add('hidden');
-        pdfBtn.classList.add('hidden'); // Ocultar botón PDF en resultados
+        if(pdfBtn) pdfBtn.classList.add('hidden'); 
         if (prevBtn) prevBtn.classList.add('hidden');
 
         resultsContainer.classList.remove('hidden');
@@ -305,6 +314,18 @@ document.addEventListener('DOMContentLoaded', () => {
         scoreCorrect.textContent = score;
         scoreTotal.textContent = total;
         scorePercent.textContent = `${Math.round(percentage)}% Aciertos`;
+
+        // --- LÓGICA DEL BOTÓN REPETIR FALLOS ---
+        // Si hay fallos, mostramos el botón y le asignamos la función
+        if (incorrectQuestions.length > 0 && retryIncorrectBtn) {
+            retryIncorrectBtn.classList.remove('hidden');
+            retryIncorrectBtn.onclick = () => {
+                startRetryMode(incorrectQuestions);
+            };
+        } else if (retryIncorrectBtn) {
+            retryIncorrectBtn.classList.add('hidden');
+        }
+        // --------------------------------------
 
         if (percentage >= 80) {
             resultMessage.textContent = "¡Excelente trabajo! Dominas el tema.";
@@ -319,5 +340,31 @@ document.addEventListener('DOMContentLoaded', () => {
             resultIcon.classList.replace('text-blue-600', 'text-red-500');
             resultIcon.parentElement.classList.replace('bg-blue-100', 'bg-red-100');
         }
+    }
+
+    // --- NUEVA FUNCIÓN: MODO REPASO ---
+    function startRetryMode(failedQuestions) {
+        // 1. Sobrescribimos el array de preguntas global SOLO con las falladas
+        // Las barajamos para que no salgan en el mismo orden
+        questions = shuffleArray(failedQuestions);
+        
+        // 2. Reiniciamos el estado del cuestionario
+        userAnswers = new Array(questions.length).fill(null);
+        currentQuestionIndex = 0;
+        score = 0;
+        
+        // Limpiamos el orden de opciones barajado previamente para que se re-barajen
+        questions.forEach(q => delete q.shuffledOptions);
+
+        // 3. Actualizamos la UI
+        resultsContainer.classList.add('hidden'); // Ocultar resultados
+        questionContainer.classList.remove('hidden'); // Mostrar preguntas
+        nextBtn.classList.remove('hidden'); // Mostrar botón siguiente
+        
+        // Opcional: Actualizar título para indicar que es repaso
+        quizTitle.textContent = `Repaso: Tema ${currentThemeId}`;
+        
+        // 4. Renderizar la primera pregunta del repaso
+        renderQuestion(0);
     }
 });
