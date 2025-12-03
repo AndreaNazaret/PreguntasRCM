@@ -8,7 +8,8 @@
       "Todas las anteriores",
       "Ninguna de las anteriores"
     ],
-    "respuesta_correcta": 3
+    "respuesta_correcta": 3,
+    "pagina": 28
   },
   {
     "pregunta": "En CDMA (Code Division Multiple Access), ¿cuál es el papel de la ortogonalización de los códigos asignados a los usuarios?",
@@ -19,7 +20,8 @@
       "Todas las anteriores",
       "Ninguna de las anteriores"
     ],
-    "respuesta_correcta": 0
+    "respuesta_correcta": 0,
+    "pagina": 49
   },
   {
     "pregunta": "¿Cuál de los siguientes modos de explotación permite transmitir información en ambas direcciones pero no de manera simultánea?",
@@ -30,7 +32,8 @@
       "Multiplex",
       "Ninguna de las anteriores"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 8
   },
   {
     "pregunta": "¿Cuántas direcciones de transmisión existen en el modo Simplex?",
@@ -41,7 +44,8 @@
       "Ninguna dirección",
       "Ilimitadas direcciones"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 8
   },
   {
     "pregunta": "¿Cuál de las siguientes opciones describe correctamente un sistema simplex?",
@@ -51,7 +55,8 @@
       "La comunicación ocurre en un único sentido, sin retorno",
       "No existe comunicación entre emisor y receptor"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 8
   },
   {
     "pregunta": "En un sistema semidúplex (half-duplex), la característica principal es:",
@@ -61,7 +66,8 @@
       "Ninguno de los equipos puede recibir datos",
       "Permite la transmisión en un solo sentido permanentemente"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 8
   },
   {
     "pregunta": "¿Cuál de las siguientes frases es correcta acerca de TDMA (Time Division Multiple Access)?",
@@ -72,7 +78,8 @@
       "Los slots sin transmisión no pueden ser utilizados por otros nodos",
       "Todas las opciones son correctas"
     ],
-    "respuesta_correcta": 4
+    "respuesta_correcta": 4,
+    "pagina": 48
   },
   {
     "pregunta": "¿En qué consiste Path Loss?",
@@ -82,7 +89,8 @@
       "Interferencias debido a que diferentes equipos comparten la misma frecuencia de trabajo",
       "Distorsión de la señal provocada por el movimiento relativo entre transmisor y receptor"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 20
   },
   {
     "pregunta": "¿Cuál de las siguientes afirmaciones describe correctamente una característica diferencial del modo infraestructura frente al modo ad-hoc?",
@@ -93,7 +101,8 @@
       "La red se organiza de manera autónoma sin necesidad de dispositivos adicionales",
       "No existe la posibilidad de cambiar de estación base al desplazarse"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 17
   },
   {
     "pregunta": "En el modo ad-hoc de una red inalámbrica:",
@@ -104,7 +113,8 @@
       "El handoff es imprescindible para mantener la conexión",
       "La red se organiza siempre a través de un servidor central"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 18
   },
   {
     "pregunta": "¿Cuál de los siguientes problemas es característico de las redes inalámbricas y no suele aparecer en redes cableadas?",
@@ -114,7 +124,8 @@
       "Saturación del canal por exceso de usuarios",
       "Retardo en la conmutación"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 22
   },
   {
     "pregunta": "¿Qué modo de red inalámbrica permite la comunicación directa entre dispositivos sin necesidad de un punto de acceso?",
@@ -124,7 +135,8 @@
       "Red semiduplex",
       "Red adhoc"
     ],
-    "respuesta_correcta": 3
+    "respuesta_correcta": 3,
+    "pagina": 18
   },
   {
     "pregunta": "¿Qué término describe el flujo saliente de energía de una fuente en forma de ondas, y que puede ser producido por un sistema de radiocomunicación incluso si no son deseadas?",
@@ -134,7 +146,8 @@
       "Radiaciones parásitas",
       "Modulación de onda"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 5
   },
   {
     "pregunta": "¿Cuál de los siguientes elementos de una red inalámbrica es responsable de enviar paquetes entre la red cableada y los terminales inalámbricos de su área de cobertura?",
@@ -144,7 +157,8 @@
       "Nodo inalámbrico",
       "Estación base"
     ],
-    "respuesta_correcta": 3
+    "respuesta_correcta": 3,
+    "pagina": 15
   },
   {
     "pregunta": "¿Cuál es una de las principales diferencias entre un medio cableado y un medio inalámbrico?",
@@ -154,7 +168,8 @@
       "El medio cableado siempre tiene menos capacidad que el inalámbrico",
       "En el medio inalámbrico no existe el ruido"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 20
   },
   {
     "pregunta": "En el modo ad hoc de una red inalámbrica…",
@@ -164,7 +179,8 @@
       "Se requiere siempre conexión a Internet",
       "Es un modo exclusivo de redes de telefonía móvil"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 18
   },
   {
     "pregunta": "¿Cuál de las siguientes afirmaciones es correcta acerca de la propagación en redes inalámbricas?",
@@ -175,7 +191,8 @@
       "Las señales siempre llegan al receptor en el mismo instante de tiempo",
       "Ninguna de las anteriores"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 20
   },
   {
     "pregunta": "¿Qué dispositivo de una red inalámbrica se encarga de conectar los nodos móviles con la red cableada?",
@@ -186,7 +203,8 @@
       "Nodo inalámbrico",
       "Router de usuario"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 15
   },
   {
     "pregunta": "¿Cuál es la eficiencia máxima teórica de Slotted ALOHA?",
@@ -197,7 +215,8 @@
       "50%",
       "80%"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 28
   },
   {
     "pregunta": "¿Qué principio sigue CSMA (Carrier Sense Multiple Access)?",
@@ -208,6 +227,7 @@
       "Utilizar un código único para cada nodo",
       "Dividir el canal en intervalos de tiempo fijos"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 36
   }
 ]

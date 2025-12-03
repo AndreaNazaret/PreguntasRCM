@@ -8,7 +8,8 @@
       "Gestión de sesiones",
       "Encaminar el tráfico de usuario"
     ],
-    "respuesta_correcta": 4
+    "respuesta_correcta": 4,
+    "pagina": 62
   },
   {
     "pregunta": "¿Qué interfaz se utiliza entre el equipo de usuario (UE) y la estación base (eNodeB) en una red 4G-LTE?",
@@ -18,7 +19,8 @@
       "Uu",
       "Ninguna de las anteriores"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 48
   },
   {
     "pregunta": "En el diseño de redes celulares, ¿cuál es el principal objetivo de aplicar el concepto de \"reutilización de frecuencias\" (frequency reuse) en distintas celdas?",
@@ -28,7 +30,8 @@
       "Asignar una frecuencia única y exclusiva a cada usuario en todo el país para evitar interferencias",
       "Permitir que los dispositivos móviles se conecten directamente entre sí sin usar estaciones base"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 17
   },
   {
     "pregunta": "Dentro de la gestión de movilidad en redes inalámbricas, ¿cómo se denomina al proceso automático mediante el cual una estación móvil transfiere su conexión activa de una estación base a otra sin interrumpir el servicio?",
@@ -38,7 +41,8 @@
       "Handover (Traspaso)",
       "Path loss (Pérdida de trayecto)"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 29
   },
   {
     "pregunta": "¿Cuál es la principal característica de la interferencia co-canal en un sistema celular?",
@@ -48,7 +52,8 @@
       "No se puede reducir incrementando la potencia, ya que también aumentaría la de las estaciones interferentes",
       "Solo afecta a las comunicaciones de datos, no a las de voz"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 26
   },
   {
     "pregunta": "En el núcleo de paquetes evolucionado (EPC) de una red 4G, ¿cuál es la función principal del MME (Mobility Management Entity)?",
@@ -58,7 +63,8 @@
       "Gestionar la facturación y las políticas de calidad de servicio (QoS)",
       "Almacenar los datos de suscripción del usuario permanentemente"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 49
   },
   {
     "pregunta": "¿A qué se refiere el factor de reuso N en un sistema celular?",
@@ -68,7 +74,8 @@
       "Al número de celdas que componen un clúster, cada una usando un conjunto distinto de frecuencias",
       "A la distancia máxima que puede haber entre dos estaciones base vecinas"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 23
   },
   {
     "pregunta": "¿Qué es un handover en un sistema celular?",
@@ -78,7 +85,8 @@
       "El mecanismo por el cual se asignan nuevos canales a cada celda según su nivel de tráfico",
       "El procedimiento utilizado para registrar un móvil cuando se enciende por primera vez en la red"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 29
   },
   {
     "pregunta": "El componente del EPC encargado de gestionar la movilidad es:",
@@ -89,7 +97,8 @@
       "MME",
       "eNodeB"
     ],
-    "respuesta_correcta": 3
+    "respuesta_correcta": 3,
+    "pagina": 49
   },
   {
     "pregunta": "El SGW realiza principalmente:",
@@ -100,7 +109,8 @@
       "Autenticación",
       "Asignación de PRBs"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 49
   },
   {
     "pregunta": "En el contexto de la eficiencia y sectorización en sistemas celulares, ¿cuál es la principal ventaja de utilizar una sectorización a 60º frente a una de 120º en cuanto a la interferencia co-canal?",
@@ -111,7 +121,8 @@
       "Permite utilizar antenas omnidireccionales en lugar de directivas",
       "Incrementa el factor de reuso a N=12 obligatoriamente"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 35
   },
   {
     "pregunta": "En la arquitectura del núcleo de red 5G (5GC), ¿qué función de red sustituye al HSS (Home Subscriber Server) del 4G para la Gestión Unificada de Datos?",
@@ -122,7 +133,8 @@
       "UDM (Unified Data Management)",
       "PCF (Policy Control Function)"
     ],
-    "respuesta_correcta": 3
+    "respuesta_correcta": 3,
+    "pagina": 67
   },
   {
     "pregunta": "¿Qué técnicas de acceso múltiple se utilizan en los enlaces descendente (Downlink) y ascendente (Uplink) de una red 4G-LTE, respectivamente?",
@@ -132,7 +144,8 @@
       "Downlink usa OFDMA y Uplink usa SC-FDMA",
       "Ambos enlaces usan TDMA"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 50
   },
   {
     "pregunta": "Una trama de radio en la red 4G-LTE tiene una duración total de:",
@@ -142,7 +155,8 @@
       "10 ms y se divide en 10 subtramas",
       "0.5 ms y se divide en 2 slots"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 51
   },
   {
     "pregunta": "¿Cuántos milisegundos (ms) dura una trama de radio completa en la tecnología 4G-LTE?",
@@ -153,7 +167,8 @@
       "10 ms",
       "50 ms"
     ],
-    "respuesta_correcta": 3
+    "respuesta_correcta": 3,
+    "pagina": 51
   },
   {
     "pregunta": "En el núcleo de red 4G (EPC), ¿cuál es la tarea principal de la entidad MME (Mobility Management Entity)?",
@@ -164,6 +179,7 @@
       "Asignar frecuencias y potencia a las celdas",
       "Almacenar contenido de video y música"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 49
   }
 ]

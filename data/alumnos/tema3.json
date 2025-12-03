@@ -7,7 +7,8 @@
       "Gestiona las comunicaciones entre diferentes redes PAN y WAN",
       "Solo actúa como dispositivo final sin capacidad de coordinación"
     ],
-    "respuesta_correcta": 0
+    "respuesta_correcta": 0,
+    "pagina": 50
   },
   {
     "pregunta": "¿Cuál de las siguientes afirmaciones se refiere al Beacon frame en IEEE 802.15.4?",
@@ -18,7 +19,8 @@
       "Proporciona un tiempo de referencia para establecer los límites y estructuras de un superframe",
       "Todas las opciones son correctas"
     ],
-    "respuesta_correcta": 4
+    "respuesta_correcta": 4,
+    "pagina": 67
   },
   {
     "pregunta": "En la estructura de la supertrama del estándar 802.15.4, ¿qué función cumplen los GTS (Guaranteed Time Slots)?",
@@ -28,7 +30,8 @@
       "Garantizan la sincronización de beacons entre redes vecinas",
       "Ninguna de las anteriores"
     ],
-    "respuesta_correcta": 0
+    "respuesta_correcta": 0,
+    "pagina": 74
   },
   {
     "pregunta": "¿Cuál de las siguientes opciones es una desventaja de la comunicación por luz visible (VLC)?",
@@ -38,7 +41,8 @@
       "La señal óptica no puede atravesar paredes",
       "Ninguna de las anteriores"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 99
   },
   {
     "pregunta": "¿Cuál es la frecuencia utilizada por la tecnología Bluetooth?",
@@ -48,7 +52,8 @@
       "5 GHz",
       "900 MHz"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 13
   },
   {
     "pregunta": "¿Qué tipo de dispositivo Bluetooth tiene más alcance?",
@@ -58,7 +63,8 @@
       "Clase 2",
       "Clase 3"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 12
   },
   {
     "pregunta": "En los enlaces físicos de la capa de Banda Base de Bluetooth, ¿qué característica corresponde a un enlace ACL (Asynchronous-Connection-Less)?",
@@ -68,7 +74,8 @@
       "El maestro puede soportar hasta 5 enlaces simultáneos",
       "No soporta broadcast"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 38
   },
   {
     "pregunta": "En el estándar IEEE 802.15.4, ¿cuál de las siguientes afirmaciones sobre los tipos de dispositivos es correcta?",
@@ -78,7 +85,8 @@
       "Un dispositivo RFD tiene una implementación reducida de los servicios MAC y no puede ser coordinador de una PAN",
       "Los dispositivos FFD y RFD tienen las mismas capacidades y funcionalidades"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 51
   },
   {
     "pregunta": "¿Qué es una piconet en Bluetooth?",
@@ -89,7 +97,8 @@
       "El modo básico de conexión de Bluetooth sobre el que se construyen scatternets",
       "Una red exclusivamente de difusión (broadcast)"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 32
   },
   {
     "pregunta": "En el canal físico de una piconet, ¿cómo se alternan los slots de transmisión?",
@@ -100,7 +109,8 @@
       "Solo el maestro transmite; el esclavo nunca transmite",
       "El reparto de slots es aleatorio"
     ],
-    "respuesta_correcta": 0
+    "respuesta_correcta": 0,
+    "pagina": 34
   },
   {
     "pregunta": "¿Quién controla la comunicación en una red Bluetooth (piconet)?",
@@ -110,7 +120,8 @@
       "Todos los dispositivos al mismo tiempo",
       "El dispositivo con más batería"
     ],
-    "respuesta_correcta": 0
+    "respuesta_correcta": 0,
+    "pagina": 32
   },
   {
     "pregunta": "¿Cuántos dispositivos puede tener conectados un maestro en una piconet Bluetooth?",
@@ -120,7 +131,8 @@
       "Hasta 3 esclavos",
       "Número ilimitado de esclavos"
     ],
-    "respuesta_correcta": 0
+    "respuesta_correcta": 0,
+    "pagina": 32
   },
   {
     "pregunta": "¿Cuál de las siguientes afirmaciones describe correctamente un Reduced Function Device (RFD) en una red IEEE 802.15.4?",
@@ -129,7 +141,8 @@
       "Está limitado a topologías en estrella o como dispositivo final en redes punto a punto",
       "Implementa todas las funciones de la capa MAC y puede coordinar otros dispositivos"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 51
   },
   {
     "pregunta": "¿Cuál de las siguientes opciones indica correctamente las bandas de frecuencia utilizadas por las redes IEEE 802.15.4?",
@@ -138,7 +151,8 @@
       "868 MHz, 915 MHz y 2.4 GHz",
       "433 MHz, 1.2 GHz y 5 GHz"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 48
   },
   {
     "pregunta": "¿Qué tipo de acceso al medio utiliza una red IEEE 802.15.4 habilitada por beacon?",
@@ -149,7 +163,8 @@
       "FDMA",
       "ALOHA"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 75
   },
   {
     "pregunta": "¿Qué tipo de dispositivo en una red IEEE 802.15.4 puede actuar como coordinador PAN?",
@@ -160,7 +175,8 @@
       "Dispositivo final",
       "Nodo ZigBee"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 51
   },
   {
     "pregunta": "¿Cuál de las siguientes NO es una característica de las redes IEEE 802.15.4?",
@@ -170,7 +186,8 @@
       "Bajo ciclo de trabajo",
       "Bajo coste"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 47
   },
   {
     "pregunta": "¿Qué norma define la capa física y MAC para VLC?",
@@ -180,6 +197,7 @@
       "IEEE 802.15.7",
       "IEEE 802.11ax"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 5
   }
 ]

@@ -8,7 +8,8 @@
       "IEEE 800.12",
       "IEEE 803.15"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 3
   },
   {
     "pregunta": "En el funcionamiento básico del DCF (CSMA/CA), ¿qué ocurre si una estación no recibe ACK?",
@@ -19,7 +20,8 @@
       "Reasocia la estación con el AP",
       "Libera el canal mediante RTS"
     ],
-    "respuesta_correcta": 0
+    "respuesta_correcta": 0,
+    "pagina": 48
   },
   {
     "pregunta": "¿Cuál es el modo de operación básico y más común de las redes 802.11 donde los dispositivos cliente (Estaciones) se conectan a través de un Punto de Acceso (AP) a la red cableada?",
@@ -30,7 +32,8 @@
       "Modo Ad-Hoc",
       "Modo P2P (Peer-to-Peer)"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 16
   },
   {
     "pregunta": "¿Cuál de los siguientes mecanismos de seguridad utiliza un vector de inicialización de 24 bits?",
@@ -40,7 +43,8 @@
       "WAP2",
       "WAP2-Enterprise"
     ],
-    "respuesta_correcta": 0
+    "respuesta_correcta": 0,
+    "pagina": 87
   },
   {
     "pregunta": "¿Cuál de las siguientes técnicas se utiliza para ensanchar el ancho de banda en sistemas de comunicación inalámbrica?",
@@ -51,7 +55,8 @@
       "Ortogonal Frequency Division Multiplexing (OFDM)",
       "Las opciones b, c y d son correctas"
     ],
-    "respuesta_correcta": 4
+    "respuesta_correcta": 4,
+    "pagina": 21
   },
   {
     "pregunta": "¿Cuál es el protocolo de encriptación usado en WPA2?",
@@ -62,7 +67,8 @@
       "DES",
       "Ninguna de las anteriores"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 94
   },
   {
     "pregunta": "¿Cuál de las siguientes es una ventaja principal de las redes locales inalámbricas (WLAN)?",
@@ -72,7 +78,8 @@
       "Garantizan siempre tasas de transmisión más altas que las redes cableadas",
       "No presentan problemas de seguridad"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 6
   },
   {
     "pregunta": "¿Qué técnica de acceso múltiple emplean las redes WiFi (IEEE 802.11)?",
@@ -83,7 +90,8 @@
       "FDMA",
       "ALOHA"
     ],
-    "respuesta_correcta": 2
+    "respuesta_correcta": 2,
+    "pagina": 46
   },
   {
     "pregunta": "En IEEE 802.11n (WiFi 4), ¿qué técnica permite transmitir varios flujos de datos en paralelo usando múltiples antenas?",
@@ -93,7 +101,8 @@
       "CDMA",
       "FHSS"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 36
   },
   {
     "pregunta": "¿Qué subcapa de la capa física se encarga de adaptar las tramas MAC para su transmisión?",
@@ -104,6 +113,7 @@
       "MAC",
       "PHY"
     ],
-    "respuesta_correcta": 1
+    "respuesta_correcta": 1,
+    "pagina": 20
   }
 ]

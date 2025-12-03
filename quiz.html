@@ -12,24 +12,22 @@
 
 <body class="animated-bg min-h-screen flex items-center justify-center p-2 md:p-4 text-gray-800">
 
-    <div
-        class="glass-card w-full max-w-3xl rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden flex flex-col min-h-[500px] md:min-h-[600px]">
+    <div class="glass-card w-full max-w-3xl rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden flex flex-col min-h-[500px] md:min-h-[600px]">
 
         <header class="bg-white/50 p-4 md:p-6 border-b border-gray-100 flex justify-between items-center">
             <a id="btn-back-header" href="index.html" class="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
                 <svg class="w-5 h-5 mr-1 md:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
                 <span id="txt-back-header" class="font-semibold text-sm md:text-base">Menú</span>
             </a>
             <h1 id="quiz-title" class="text-lg md:text-xl font-bold text-gray-800 truncate max-w-[150px] md:max-w-none">
                 Cargando...</h1>
-            <div class="w-16 md:w-20"></div> </header>
+            <div class="w-16 md:w-20"></div>
+        </header>
 
         <div class="w-full bg-gray-200 h-1.5 md:h-2">
-            <div id="progress-bar" class="bg-blue-500 h-1.5 md:h-2 transition-all duration-500 ease-out"
-                style="width: 0%"></div>
+            <div id="progress-bar" class="bg-blue-500 h-1.5 md:h-2 transition-all duration-500 ease-out" style="width: 0%"></div>
         </div>
 
         <main class="flex-grow p-4 md:p-8 flex flex-col justify-center relative">
@@ -41,9 +39,7 @@
 
             <div id="question-container" class="hidden w-full max-w-2xl mx-auto fade-in">
                 <div class="mb-6 md:mb-8">
-                    <span id="question-counter"
-                        class="text-xs md:text-sm font-bold text-blue-500 uppercase tracking-wider mb-2 block">Pregunta
-                        1 de 10</span>
+                    <span id="question-counter" class="text-xs md:text-sm font-bold text-blue-500 uppercase tracking-wider mb-2 block">Pregunta 1 de 10</span>
                     <h2 id="question-text" class="text-xl md:text-3xl font-bold text-gray-800 leading-tight">
                         ¿Cuál es la pregunta?
                     </h2>
@@ -55,12 +51,9 @@
 
             <div id="results-container" class="hidden w-full text-center fade-in">
                 <div class="mb-6">
-                    <div
-                        class="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-blue-100 mb-4 md:mb-6">
-                        <svg id="result-icon" class="w-10 h-10 md:w-12 md:h-12 text-blue-600" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    <div class="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-blue-100 mb-4 md:mb-6">
+                        <svg id="result-icon" class="w-10 h-10 md:w-12 md:h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">¡Completado!</h2>
@@ -68,8 +61,7 @@
                 </div>
 
                 <div class="bg-white/60 rounded-xl p-4 md:p-6 mb-6 md:mb-8 max-w-xs md:max-w-sm mx-auto">
-                    <div class="text-xs md:text-sm text-gray-500 uppercase tracking-wider font-semibold mb-1">Tu
-                        Puntuación</div>
+                    <div class="text-xs md:text-sm text-gray-500 uppercase tracking-wider font-semibold mb-1">Tu Puntuación</div>
                     <div class="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
                         <span id="score-correct">0</span>/<span id="score-total">0</span>
                     </div>
@@ -77,12 +69,10 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
-                    <button onclick="location.reload()"
-                        class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg hover:shadow-blue-500/30 text-sm md:text-base">
+                    <button onclick="location.reload()" class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg hover:shadow-blue-500/30 text-sm md:text-base">
                         Intentar de nuevo
                     </button>
-                    <a id="btn-back-results" href="index.html"
-                        class="w-full sm:w-auto px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-bold rounded-xl border border-gray-200 transition-colors shadow-sm hover:shadow-md text-sm md:text-base">
+                    <a id="btn-back-results" href="index.html" class="w-full sm:w-auto px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-bold rounded-xl border border-gray-200 transition-colors shadow-sm hover:shadow-md text-sm md:text-base">
                         Volver al Menú
                     </a>
                 </div>
@@ -90,17 +80,20 @@
 
         </main>
 
-        <footer class="p-4 md:p-6 border-t border-gray-100 flex justify-between items-center bg-white/30">
-            <button id="prev-btn"
-                class="hidden px-3 py-2 md:px-4 text-gray-500 hover:text-gray-800 font-medium transition-colors flex items-center text-sm md:text-base">
+        <footer class="p-4 md:p-6 border-t border-gray-100 flex items-center bg-white/30 gap-3">
+            <button id="prev-btn" class="hidden px-3 py-2 text-gray-500 hover:text-gray-800 font-medium transition-colors flex items-center text-sm">
                 <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
                 Anterior
             </button>
 
-            <button id="next-btn"
-                class="hidden px-5 py-2 md:px-6 bg-gray-800 hover:bg-gray-900 text-white font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center text-sm md:text-base ml-auto">
+            <div class="flex-grow"></div> <button id="pdf-btn" class="hidden px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition-colors shadow-md flex items-center text-sm md:text-base animate-bounce-in">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                Ver Referencia
+            </button>
+
+            <button id="next-btn" class="hidden px-5 py-2 bg-gray-800 hover:bg-gray-900 text-white font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center text-sm md:text-base">
                 Siguiente
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -110,41 +103,72 @@
 
     </div>
 
+    <div id="pdf-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 md:p-4 transition-opacity duration-300">
+        <div class="bg-white w-full h-[95vh] max-w-7xl rounded-2xl shadow-2xl flex flex-col overflow-hidden relative animate-bounce-in">
+
+            <div class="flex justify-between items-center p-3 border-b border-gray-200 bg-gray-50 shrink-0">
+                <h3 class="font-bold text-gray-700 text-lg flex items-center gap-2">
+                    <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z"></path>
+                        <path d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"></path>
+                    </svg>
+                    Referencia del Temario
+                </h3>
+                <button onclick="closePdf()" class="text-gray-500 hover:text-red-600 hover:bg-red-50 p-2 rounded-full transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex-grow flex flex-col md:flex-row overflow-hidden relative">
+                
+                <div class="w-full md:w-1/3 bg-gray-50 border-r border-gray-200 p-4 md:p-6 overflow-y-auto shadow-inner z-10">
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Pregunta Actual</h4>
+                    <div id="modal-question-content" class="space-y-4">
+                        </div>
+                </div>
+
+                <div class="w-full md:w-2/3 h-1/2 md:h-full bg-gray-200 relative">
+                    <iframe id="pdf-frame" src="" class="w-full h-full border-0" title="Visor PDF"></iframe>
+                    
+                    <div id="pdf-loading" class="absolute inset-0 flex flex-col items-center justify-center text-gray-500 -z-10">
+                        <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-600 mb-2"></div>
+                        Cargando documento...
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-2 bg-gray-50 text-xs text-center text-gray-400 border-t border-gray-200 shrink-0">
+                Usa el scroll para moverte arriba y abajo en el documento.
+            </div>
+        </div>
+    </div>
+
     <script src="js/quiz.js"></script>
-    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Obtener parámetros de la URL
             const urlParams = new URLSearchParams(window.location.search);
             const origen = urlParams.get('origen');
-
-            // 2. Elementos a modificar
             const btnBackHeader = document.getElementById('btn-back-header');
             const txtBackHeader = document.getElementById('txt-back-header');
             const btnBackResults = document.getElementById('btn-back-results');
 
-            // 3. Lógica de redirección
             if (origen === 'alumnos') {
                 const target = 'menu_alumnos.html';
                 const text = 'Alumnos';
-                
                 btnBackHeader.href = target;
                 txtBackHeader.innerText = text;
-                
                 btnBackResults.href = target;
                 btnBackResults.innerText = "Volver a Alumnos";
-            } 
-            else if (origen === 'general') {
+            } else if (origen === 'general') {
                 const target = 'menu_general.html';
                 const text = 'General';
-                
                 btnBackHeader.href = target;
                 txtBackHeader.innerText = text;
-                
                 btnBackResults.href = target;
                 btnBackResults.innerText = "Volver a General";
             }
-            // Si no hay parámetro, se queda con el default (index.html)
         });
     </script>
 </body>
