@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo Completo RCM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    </script>
+
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; }
+        .glass-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.3); }
+        .option-card { transition: all 0.2s ease; }
+        .option-card:hover:not(:disabled) { background-color: #f1f5f9; }
+        .selected-option { border-color: #3b82f6; background-color: #eff6ff; box-shadow: 0 0 0 2px #3b82f6; }
+        .correct-answer { border-color: #10b981; background-color: #d1fae5; box-shadow: 0 0 0 2px #10b981; }
+        .wrong-answer { border-color: #ef4444; background-color: #fee2e2; box-shadow: 0 0 0 2px #ef4444; }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+
+<body class="text-gray-800 min-h-screen pb-32">
+
+    <header class="glass-header fixed top-0 w-full z-40 px-6 py-4 shadow-sm flex justify-between items-center">
+        <a href="index.html" class="flex items-center text-gray-500 hover:text-red-600 transition-colors font-bold text-sm uppercase tracking-wide">
+            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Salir
+        </a>
+        <h1 class="text-lg md:text-xl font-bold text-indigo-900 tracking-tight" id="mode-title">MODO COMPLETO</h1>
+        <div class="text-sm font-mono text-gray-400" id="q-counter"></div>
+    </header>
+
+    <div id="mode-selector" class="fixed inset-0 z-50 bg-gray-900/95 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-2xl rounded-3xl p-8 shadow-2xl text-center animate-fade-in">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecciona el Modo</h2>
+            <p class="text-gray-500 mb-8">Se cargarán TODAS las preguntas de los 6 temas mezcladas.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <button onclick="startMode('practice')" class="group bg-indigo-50 hover:bg-indigo-100 border-2 border-indigo-200 rounded-2xl p-6 transition-all hover:scale-105">
+                    <div class="w-16 h-16 bg-indigo-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg">🎓</div>
+                    <h3 class="text-xl font-bold text-indigo-700 mb-2">Modo Práctica</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        • Feedback instantáneo.<br>
+                        • Ver respuesta y PDF al momento.<br>
+                        • Ideal para estudiar.
+                    </p>
+                </button>
+
+                <button onclick="startMode('exam')" class="group bg-red-50 hover:bg-red-100 border-2 border-red-200 rounded-2xl p-6 transition-all hover:scale-105">
+                    <div class="w-16 h-16 bg-red-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg">⏱️</div>
+                    <h3 class="text-xl font-bold text-red-700 mb-2">Modo Simulacro</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        • Sin ayudas durante el test.<br>
+                        • Resultados al final.<br>
+                        • Ideal para evaluarte.
+                    </p>
+                </button>
+            </div>
+            <a href="index.html" class="mt-8 inline-block text-gray-400 hover:text-gray-600 underline text-sm">Cancelar y volver</a>
+        </div>
+    </div>
+
+    <main class="container mx-auto max-w-3xl px-4 pt-24">
+        
+        <div id="loading-state" class="flex flex-col items-center justify-center h-64 hidden">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mb-4"></div>
+            <p class="text-gray-500 font-medium">Cargando base de datos completa...</p>
+        </div>
+
+        <div id="quiz-container" class="space-y-8 hidden">
+            </div>
+
+        <div id="results-card" class="hidden bg-white rounded-2xl p-8 shadow-xl border border-gray-200 text-center mb-10">
+            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl">🏆</div>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">¡Has terminado!</h2>
+            <p class="text-gray-500 mb-6">Revisa tus respuestas abajo. Se ha revelado el tema de origen.</p>
+            
+            <div class="flex justify-center gap-8 text-center mb-8">
+                <div>
+                    <div class="text-4xl font-bold text-green-500" id="final-score">0</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Aciertos</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-gray-800" id="final-total">0</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Total</div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-4">
+                <button onclick="location.reload()" class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-bold">Repetir</button>
+                <a href="index.html" class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-bold">Salir</a>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="exam-submit-bar" class="fixed bottom-0 w-full bg-white border-t border-gray-200 p-4 flex justify-center z-30 hidden shadow-lg">
+        <button onclick="submitExam()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-12 rounded-full shadow-lg transition-transform hover:scale-105">
+            Finalizar y Corregir
+        </button>
+    </div>
+
+    <div id="pdf-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 md:p-4 transition-opacity duration-300">
+        <div class="bg-white w-full h-[95vh] max-w-7xl rounded-2xl shadow-2xl flex flex-col overflow-hidden relative animate-bounce-in">
+            <div class="flex justify-between items-center p-4 border-b border-gray-200 bg-gray-50 shrink-0">
+                <h3 class="font-bold text-gray-700 text-lg flex items-center gap-2">
+                    <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z"></path><path d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"></path></svg>
+                    Referencia del Temario
+                </h3>
+                <button onclick="closePdf()" class="text-gray-500 hover:text-red-600 hover:bg-red-50 p-2 rounded-full transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="flex-grow flex flex-col md:flex-row overflow-hidden relative">
+                <div class="w-full md:w-1/3 bg-gray-50 border-r border-gray-200 p-4 md:p-6 overflow-y-auto shadow-inner z-10 hidden md:block">
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Pregunta</h4>
+                    <div id="modal-question-content" class="space-y-4"></div>
+                </div>
+                <div class="w-full md:w-2/3 h-1/2 md:h-full bg-gray-200 relative overflow-auto flex flex-col items-center p-2" id="pdf-scroll-container">
+                    <canvas id="the-canvas" class="shadow-xl rounded-lg bg-white mb-4"></canvas>
+                    <div id="pdf-loading" class="absolute inset-0 flex flex-col items-center justify-center text-gray-600 bg-white/80 z-10 hidden">
+                        <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-800 mb-2"></div>
+                        Cargando página...
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 bg-white border-t border-gray-200 flex justify-between items-center shrink-0">
+                <button onclick="prevPage()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-semibold text-gray-700">&larr; Ant</button>
+                <span class="text-sm text-gray-500">Pág <span id="page-num">--</span> / <span id="page-count">--</span></span>
+                <button onclick="nextPage()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-semibold text-gray-700">Sig &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/completo.js"></script>
+</body>
+</html>
