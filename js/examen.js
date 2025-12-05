@@ -4,21 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBar = document.getElementById('submit-bar');
     const retryBar = document.getElementById('retry-bar');
     const resultsHeader = document.getElementById('results-header');
-    const rulesCard = document.getElementById('rules-card');
 
-    // --- PDF Elements ---
     const pdfModal = document.getElementById('pdf-modal');
     const modalQuestionContent = document.getElementById('modal-question-content');
     const pdfLoading = document.getElementById('pdf-loading');
     const canvas = document.getElementById('the-canvas');
     const ctx = canvas ? canvas.getContext('2d') : null;
 
-    // --- Configuración ---
     const TOTAL_QUESTIONS = 15; 
     const PENALTY = 0.33; 
     const TOTAL_THEMES = 6; 
     
-    // --- Estado ---
     let examQuestions = [];
     let userAnswers = {}; 
     let pdfDoc = null;
@@ -58,13 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 selectedQuestions = selectedQuestions.concat(shuffledReserve.slice(0, needed));
             }
 
-            if (selectedQuestions.length === 0) throw new Error("No hay preguntas suficientes.");
+            if (selectedQuestions.length === 0) throw new Error("No hay preguntas.");
             examQuestions = shuffleArray(selectedQuestions);
             renderExam();
             
         } catch (error) {
             console.error(error);
-            loadingState.innerHTML = `<p class="text-red-500 font-bold">Error al generar el examen.</p>`;
+            loadingState.innerHTML = `<p class="text-red-500">Error cargando examen.</p>`;
         }
     }
 
@@ -104,15 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             html += `</div>
-                <div class="mt-4 pt-4 border-t border-gray-100 hidden feedback-area text-sm flex justify-between items-center">
-                    <span class="feedback-text"></span>
-                    <button onclick="openPdf(${q.temaOrigen}, ${q.pagina}, ${index})" class="text-blue-600 hover:text-blue-800 font-bold text-xs uppercase border border-blue-200 px-3 py-1 rounded-full hover:bg-blue-50 transition-colors flex items-center">
+                <div class="mt-4 pt-4 border-t border-gray-100 hidden feedback-area flex justify-end">
+                     <button onclick="openPdf(${q.temaOrigen}, ${q.pagina}, ${index})" class="text-blue-600 hover:text-blue-800 font-bold text-xs uppercase border border-blue-200 px-3 py-1 rounded-full hover:bg-blue-50 flex items-center">
                         <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                        Ver en PDF
+                        Ver PDF
                     </button>
                 </div>
             `;
-            
             qElement.innerHTML = html;
             examContainer.appendChild(qElement);
         });
@@ -141,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBar.classList.remove('flex');
         retryBar.classList.remove('hidden');
         retryBar.classList.add('flex');
-        rulesCard.classList.add('hidden'); 
 
         let correctCount = 0;
         let incorrectCount = 0;
@@ -150,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
         examQuestions.forEach((q, index) => {
             const qDiv = document.getElementById(`question-${index}`);
             const feedbackArea = qDiv.querySelector('.feedback-area');
-            const feedbackText = qDiv.querySelector('.feedback-text');
             const metaSpan = qDiv.querySelector('.q-meta');
             const userSel = userAnswers[index];
             const correctIndex = q.respuesta_correcta;
@@ -161,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (userSel === undefined) {
                 blankCount++;
-                feedbackText.innerHTML = `<span class="text-gray-500 font-bold">⚠️ En blanco (0 pts)</span>`;
                 const correctDiv = document.getElementById(`opt-${index}-${correctIndex}`);
                 if(correctDiv) highlightCorrect(correctDiv);
             } else if (userSel === correctIndex) {
@@ -169,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const userDiv = document.getElementById(`opt-${index}-${userSel}`);
                 userDiv.classList.remove('selected-option');
                 userDiv.classList.add('correct-answer');
-                feedbackText.innerHTML = `<span class="text-green-600 font-bold">✅ Correcto (+1 pt)</span>`;
             } else {
                 incorrectCount++;
                 const userDiv = document.getElementById(`opt-${index}-${userSel}`);
@@ -177,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 userDiv.classList.remove('selected-option');
                 userDiv.classList.add('wrong-answer');
                 if(correctDiv) highlightCorrect(correctDiv);
-                feedbackText.innerHTML = `<span class="text-red-500 font-bold">❌ Fallo (-${PENALTY} pts)</span>`;
             }
         });
 
@@ -199,7 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function highlightCorrect(div) {
         div.classList.add('correct-answer', 'ring-2', 'ring-green-500');
-        div.innerHTML += ` <span class="ml-auto text-xs font-bold text-green-700 bg-green-200 px-2 py-0.5 rounded">SOLUCIÓN</span>`;
     }
 
     function shuffleArray(array) {
@@ -210,32 +198,31 @@ document.addEventListener('DOMContentLoaded', () => {
         return array;
     }
 
-    // --- PDF Functions ---
+    // --- PDF.js Logic (High Quality) ---
     window.openPdf = function(tema, pagina, qIndex) {
         const pdfPath = `pdfs/Tema${tema}.pdf`;
         
         if(pdfModal) pdfModal.classList.remove('hidden');
         if(pdfLoading) pdfLoading.classList.remove('hidden');
 
-        // Rellenar split view
+        // Copiar contenido al modal para el contexto
         if(modalQuestionContent) {
             const qDiv = document.getElementById(`question-${qIndex}`);
-            const qTitleText = qDiv.querySelector('h3').innerText;
-            const optionsHTML = qDiv.querySelector('.options-wrapper').innerHTML;
-            
+            const qTitle = qDiv.querySelector('h3').innerText;
+            const optsHTML = qDiv.querySelector('.options-wrapper').innerHTML;
             modalQuestionContent.innerHTML = `
-                <h3 class="text-lg font-bold text-gray-800 mb-4 leading-tight">${qTitleText}</h3>
-                <div class="space-y-2">${optionsHTML}</div>
+                <h3 class="text-sm font-bold text-gray-800 mb-2">${qTitle}</h3>
+                <div class="space-y-2 text-xs pointer-events-none opacity-75">${optsHTML}</div>
             `;
         }
 
         pdfjsLib.getDocument(pdfPath).promise.then(function(pdfDoc_) {
             pdfDoc = pdfDoc_;
             document.getElementById('page-count').textContent = pdfDoc.numPages;
-            pageNum = parseInt(pagina); 
+            pageNum = parseInt(pagina);
             queueRenderPage(pageNum);
         }).catch(function(error) {
-            console.error('Error PDF:', error);
+            console.error(error);
             if(pdfLoading) pdfLoading.classList.add('hidden');
         });
     }
@@ -244,16 +231,28 @@ document.addEventListener('DOMContentLoaded', () => {
         pageRendering = true;
         pdfDoc.getPage(num).then(function(page) {
             const container = document.getElementById('pdf-scroll-container');
+            // Detectar ancho real y usar PixelRatio para nitidez
+            const pixelRatio = window.devicePixelRatio || 1;
             const desiredWidth = container.clientWidth - 20;
+            
             const viewport = page.getViewport({scale: 1});
-            const responsiveScale = desiredWidth / viewport.width;
-            const finalScale = responsiveScale > 1 ? responsiveScale : (window.innerWidth < 768 ? responsiveScale : 1.5);
-            const scaledViewport = page.getViewport({scale: finalScale});
+            const scale = desiredWidth / viewport.width;
+            const scaledViewport = page.getViewport({scale: scale});
 
-            canvas.height = scaledViewport.height;
-            canvas.width = scaledViewport.width;
+            // Ajustar tamaño interno del canvas para HD
+            canvas.width = Math.floor(scaledViewport.width * pixelRatio);
+            canvas.height = Math.floor(scaledViewport.height * pixelRatio);
+            
+            // Ajustar tamaño visual en CSS
+            canvas.style.width = Math.floor(scaledViewport.width) + "px";
+            canvas.style.height = Math.floor(scaledViewport.height) + "px";
 
-            const renderContext = { canvasContext: ctx, viewport: scaledViewport };
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: scaledViewport,
+                transform: [pixelRatio, 0, 0, pixelRatio, 0, 0] // Escalar contexto
+            };
+            
             const renderTask = page.render(renderContext);
 
             renderTask.promise.then(function() {
