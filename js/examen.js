@@ -6,84 +6,65 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsHeader = document.getElementById('results-header');
     const rulesCard = document.getElementById('rules-card');
 
+    // --- PDF Elements ---
+    const pdfModal = document.getElementById('pdf-modal');
+    const modalQuestionContent = document.getElementById('modal-question-content');
+    const pdfLoading = document.getElementById('pdf-loading');
+    const canvas = document.getElementById('the-canvas');
+    const ctx = canvas ? canvas.getContext('2d') : null;
+
     // --- Configuración ---
     const TOTAL_QUESTIONS = 15; 
-    const PENALTY = 0.33; // Resta 0.33 por fallo
+    const PENALTY = 0.33; 
     const TOTAL_THEMES = 6; 
     
     // --- Estado ---
     let examQuestions = [];
     let userAnswers = {}; 
+    let pdfDoc = null;
+    let pageNum = 1;
+    let pageRendering = false;
+    let pageNumPending = null;
 
     init();
 
     async function init() {
         try {
-            // 1. Cargar todos los temas
             const promises = [];
             const basePath = 'data/alumnos/'; 
 
             for (let i = 1; i <= TOTAL_THEMES; i++) {
                 const url = `${basePath}tema${i}.json`;
-                const p = fetch(url)
-                    .then(res => res.ok ? res.json() : [])
-                    .catch(err => []);
+                const p = fetch(url).then(res => res.ok ? res.json() : []).catch(err => []);
                 promises.push(p);
             }
 
             const allThemesData = await Promise.all(promises);
-
-            // 2. LÓGICA DE SELECCIÓN: MÍNIMO 1 DE CADA TEMA
             let selectedQuestions = [];
-            let reservePool = []; // Aquí metemos las que sobran para rellenar luego
+            let reservePool = [];
 
             allThemesData.forEach((themeQuestions, index) => {
                 if (Array.isArray(themeQuestions) && themeQuestions.length > 0) {
-                    // Etiquetamos el tema antes de nada
                     themeQuestions.forEach(q => q.temaOrigen = index + 1);
-
-                    // Mezclamos las preguntas de este tema específico
                     const shuffledTheme = shuffleArray([...themeQuestions]);
-
-                    // A) Cogemos LA PRIMERA (Obligatoria)
-                    const mandatory = shuffledTheme[0];
-                    selectedQuestions.push(mandatory);
-
-                    // B) El resto (si hay) van a la reserva global
-                    if (shuffledTheme.length > 1) {
-                        const extras = shuffledTheme.slice(1);
-                        reservePool = reservePool.concat(extras);
-                    }
+                    selectedQuestions.push(shuffledTheme[0]);
+                    if (shuffledTheme.length > 1) reservePool = reservePool.concat(shuffledTheme.slice(1));
                 }
             });
 
-            // 3. RELLENAR HASTA 15 CON EL POOL DE RESERVA
-            // Tenemos (idealmente) 6 preguntas obligatorias, faltan 9 para llegar a 15.
             const needed = TOTAL_QUESTIONS - selectedQuestions.length;
-
             if (needed > 0 && reservePool.length >= needed) {
-                // Mezclamos la reserva (que tiene preguntas de todos los temas mezcladas)
                 const shuffledReserve = shuffleArray(reservePool);
-                // Cogemos las que faltan
-                const fillers = shuffledReserve.slice(0, needed);
-                // Las añadimos al examen
-                selectedQuestions = selectedQuestions.concat(fillers);
+                selectedQuestions = selectedQuestions.concat(shuffledReserve.slice(0, needed));
             }
 
-            // Si por algún motivo no hay suficientes preguntas en total
             if (selectedQuestions.length === 0) throw new Error("No hay preguntas suficientes.");
-
-            // 4. MEZCLAR EL EXAMEN FINAL
-            // Ahora tenemos las 15 preguntas (6 obligatorias + 9 random), pero están en orden.
-            // Las barajamos todas para que salgan mezcladas.
             examQuestions = shuffleArray(selectedQuestions);
-
-            // Renderizar
             renderExam();
             
         } catch (error) {
             console.error(error);
-            loadingState.innerHTML = `<p class="text-red-500 font-bold">Error al generar el examen. Revisa la consola.</p>`;
+            loadingState.innerHTML = `<p class="text-red-500 font-bold">Error al generar el examen.</p>`;
         }
     }
 
@@ -92,11 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
         examContainer.classList.remove('hidden');
         submitBar.classList.remove('hidden');
         submitBar.classList.add('flex');
-
         examContainer.innerHTML = '';
 
         examQuestions.forEach((q, index) => {
-            // Mapear opciones para no perder el índice original al barajar
             let optionsMap = q.opciones.map((opt, i) => ({ text: opt, originalIndex: i }));
             optionsMap = shuffleArray(optionsMap);
             q.shuffledOptions = optionsMap;
@@ -105,34 +84,33 @@ document.addEventListener('DOMContentLoaded', () => {
             qElement.className = "bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow";
             qElement.id = `question-${index}`;
             
-            // HEADER DE LA PREGUNTA (Tema oculto)
             let html = `
                 <div class="flex justify-between items-center mb-4 q-header">
                     <span class="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full">PREGUNTA ${index + 1}</span>
-                    <span class="q-meta"></span> 
+                    <span class="q-meta"></span>
                 </div>
                 <h3 class="text-lg font-semibold text-gray-800 mb-6 leading-snug">${q.pregunta}</h3>
-                <div class="space-y-3">
-            `;
+                <div class="space-y-3 options-wrapper">`;
 
-            // OPCIONES
             optionsMap.forEach((opt) => {
                 html += `
-                    <div 
-                        class="option-card border border-gray-200 rounded-lg p-4 cursor-pointer flex items-center group select-none"
-                        onclick="selectOption(${index}, ${opt.originalIndex}, this)"
-                        id="opt-${index}-${opt.originalIndex}"
-                    >
+                    <div class="option-card border border-gray-200 rounded-lg p-4 cursor-pointer flex items-center group select-none"
+                        onclick="selectOption(${index}, ${opt.originalIndex}, this)" id="opt-${index}-${opt.originalIndex}">
                         <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 flex items-center justify-center mr-3 indicator-circle transition-colors">
                             <div class="w-2.5 h-2.5 rounded-full bg-blue-500 opacity-0 transition-opacity check-dot"></div>
                         </div>
                         <span class="text-gray-700 text-sm md:text-base">${opt.text}</span>
-                    </div>
-                `;
+                    </div>`;
             });
 
             html += `</div>
-                <div class="mt-4 pt-4 border-t border-gray-100 hidden feedback-area text-sm"></div>
+                <div class="mt-4 pt-4 border-t border-gray-100 hidden feedback-area text-sm flex justify-between items-center">
+                    <span class="feedback-text"></span>
+                    <button onclick="openPdf(${q.temaOrigen}, ${q.pagina}, ${index})" class="text-blue-600 hover:text-blue-800 font-bold text-xs uppercase border border-blue-200 px-3 py-1 rounded-full hover:bg-blue-50 transition-colors flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        Ver en PDF
+                    </button>
+                </div>
             `;
             
             qElement.innerHTML = html;
@@ -140,21 +118,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Funciones Globales ---
-
     window.selectOption = function(qIndex, optIndex, element) {
-        if (resultsHeader.classList.contains('block')) return; 
-
+        if (resultsHeader.classList.contains('block')) return;
         userAnswers[qIndex] = optIndex;
-
         const parent = document.getElementById(`question-${qIndex}`);
-        
         parent.querySelectorAll('.option-card').forEach(el => {
             el.classList.remove('selected-option', 'border-blue-500', 'bg-blue-50');
             el.querySelector('.indicator-circle').classList.remove('border-blue-500');
             el.querySelector('.check-dot').classList.add('opacity-0');
         });
-
         element.classList.add('selected-option', 'border-blue-500', 'bg-blue-50');
         element.querySelector('.indicator-circle').classList.add('border-blue-500');
         element.querySelector('.check-dot').classList.remove('opacity-0');
@@ -162,13 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.submitExam = function() {
         const answered = Object.keys(userAnswers).length;
-        const total = examQuestions.length;
-        
-        if (answered < total) {
-            if(!confirm(`Faltan ${total - answered} preguntas. ¿Entregar ya?`)) return;
-        } else {
-            if(!confirm("¿Entregar examen definitivo?")) return;
-        }
+        if (answered < examQuestions.length && !confirm(`Faltan ${examQuestions.length - answered}. ¿Entregar?`)) return;
+        if (answered === examQuestions.length && !confirm("¿Entregar examen?")) return;
 
         submitBar.classList.add('hidden');
         submitBar.classList.remove('flex');
@@ -182,83 +149,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
         examQuestions.forEach((q, index) => {
             const qDiv = document.getElementById(`question-${index}`);
-            const feedback = qDiv.querySelector('.feedback-area');
+            const feedbackArea = qDiv.querySelector('.feedback-area');
+            const feedbackText = qDiv.querySelector('.feedback-text');
+            const metaSpan = qDiv.querySelector('.q-meta');
             const userSel = userAnswers[index];
             const correctIndex = q.respuesta_correcta;
 
-            feedback.classList.remove('hidden');
-            
-            // MOSTRAR EL TEMA AHORA
-            const metaSpan = qDiv.querySelector('.q-meta');
-            if(metaSpan) {
-                metaSpan.innerHTML = `<span class="text-xs font-mono text-gray-500 bg-gray-100 border border-gray-200 px-2 py-1 rounded">Tema ${q.temaOrigen}</span>`;
-            }
-
+            feedbackArea.classList.remove('hidden');
+            metaSpan.innerHTML = `<span class="text-xs font-mono text-gray-500 bg-gray-100 border border-gray-200 px-2 py-1 rounded">Tema ${q.temaOrigen}</span>`;
             qDiv.querySelectorAll('.option-card').forEach(o => o.style.pointerEvents = 'none');
 
             if (userSel === undefined) {
                 blankCount++;
-                feedback.innerHTML = `<span class="text-gray-500 font-bold">⚠️ En blanco (0 pts)</span>`;
+                feedbackText.innerHTML = `<span class="text-gray-500 font-bold">⚠️ En blanco (0 pts)</span>`;
                 const correctDiv = document.getElementById(`opt-${index}-${correctIndex}`);
                 if(correctDiv) highlightCorrect(correctDiv);
-            } 
-            else if (userSel === correctIndex) {
+            } else if (userSel === correctIndex) {
                 correctCount++;
                 const userDiv = document.getElementById(`opt-${index}-${userSel}`);
                 userDiv.classList.remove('selected-option');
                 userDiv.classList.add('correct-answer');
-                feedback.innerHTML = `<span class="text-green-600 font-bold">✅ Correcto (+1 pt)</span>`;
-            } 
-            else {
+                feedbackText.innerHTML = `<span class="text-green-600 font-bold">✅ Correcto (+1 pt)</span>`;
+            } else {
                 incorrectCount++;
                 const userDiv = document.getElementById(`opt-${index}-${userSel}`);
                 const correctDiv = document.getElementById(`opt-${index}-${correctIndex}`);
-                
                 userDiv.classList.remove('selected-option');
                 userDiv.classList.add('wrong-answer');
-                
-                if(correctDiv) highlightCorrect(correctDiv); 
-                
-                feedback.innerHTML = `<span class="text-red-500 font-bold">❌ Fallo (-${PENALTY} pts)</span>`;
+                if(correctDiv) highlightCorrect(correctDiv);
+                feedbackText.innerHTML = `<span class="text-red-500 font-bold">❌ Fallo (-${PENALTY} pts)</span>`;
             }
         });
 
-        function highlightCorrect(div) {
-            div.classList.add('correct-answer');
-            div.classList.add('ring-2', 'ring-green-500', 'ring-offset-1');
-            const label = document.createElement('span');
-            label.className = "ml-auto text-xs font-bold text-green-700 bg-green-200 px-2 py-0.5 rounded";
-            label.innerText = "SOLUCIÓN";
-            div.appendChild(label);
-        }
-
-
-        
-
         let rawPoints = correctCount - (incorrectCount * PENALTY);
         if (rawPoints < 0) rawPoints = 0;
-        
-        const finalScore = (rawPoints / total) * 10;
+        const finalScore = (rawPoints / examQuestions.length) * 10;
 
         document.getElementById('res-correct').innerText = correctCount;
         document.getElementById('res-incorrect').innerText = incorrectCount;
         document.getElementById('res-blank').innerText = blankCount;
-        
         const scoreEl = document.getElementById('res-score');
         scoreEl.innerText = finalScore.toFixed(2);
+        scoreEl.className = "text-7xl font-bold my-4 " + (finalScore >= 5 ? "text-green-400" : "text-red-400");
         
-        if (finalScore >= 5) {
-            scoreEl.className = "text-7xl font-bold my-4 text-green-400";
-            resultsHeader.classList.add('border-b-8', 'border-green-500');
-        } else {
-            scoreEl.className = "text-7xl font-bold my-4 text-red-400";
-            resultsHeader.classList.add('border-b-8', 'border-red-500');
-        }
-
         resultsHeader.classList.remove('hidden');
         resultsHeader.classList.add('block');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    function highlightCorrect(div) {
+        div.classList.add('correct-answer', 'ring-2', 'ring-green-500');
+        div.innerHTML += ` <span class="ml-auto text-xs font-bold text-green-700 bg-green-200 px-2 py-0.5 rounded">SOLUCIÓN</span>`;
+    }
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -266,5 +208,75 @@ document.addEventListener('DOMContentLoaded', () => {
             [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
+    }
+
+    // --- PDF Functions ---
+    window.openPdf = function(tema, pagina, qIndex) {
+        const pdfPath = `pdfs/Tema${tema}.pdf`;
+        
+        if(pdfModal) pdfModal.classList.remove('hidden');
+        if(pdfLoading) pdfLoading.classList.remove('hidden');
+
+        // Rellenar split view
+        if(modalQuestionContent) {
+            const qDiv = document.getElementById(`question-${qIndex}`);
+            const qTitleText = qDiv.querySelector('h3').innerText;
+            const optionsHTML = qDiv.querySelector('.options-wrapper').innerHTML;
+            
+            modalQuestionContent.innerHTML = `
+                <h3 class="text-lg font-bold text-gray-800 mb-4 leading-tight">${qTitleText}</h3>
+                <div class="space-y-2">${optionsHTML}</div>
+            `;
+        }
+
+        pdfjsLib.getDocument(pdfPath).promise.then(function(pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('page-count').textContent = pdfDoc.numPages;
+            pageNum = parseInt(pagina); 
+            queueRenderPage(pageNum);
+        }).catch(function(error) {
+            console.error('Error PDF:', error);
+            if(pdfLoading) pdfLoading.classList.add('hidden');
+        });
+    }
+
+    function renderPage(num) {
+        pageRendering = true;
+        pdfDoc.getPage(num).then(function(page) {
+            const container = document.getElementById('pdf-scroll-container');
+            const desiredWidth = container.clientWidth - 20;
+            const viewport = page.getViewport({scale: 1});
+            const responsiveScale = desiredWidth / viewport.width;
+            const finalScale = responsiveScale > 1 ? responsiveScale : (window.innerWidth < 768 ? responsiveScale : 1.5);
+            const scaledViewport = page.getViewport({scale: finalScale});
+
+            canvas.height = scaledViewport.height;
+            canvas.width = scaledViewport.width;
+
+            const renderContext = { canvasContext: ctx, viewport: scaledViewport };
+            const renderTask = page.render(renderContext);
+
+            renderTask.promise.then(function() {
+                pageRendering = false;
+                if (pageNumPending !== null) {
+                    renderPage(pageNumPending);
+                    pageNumPending = null;
+                }
+                if(pdfLoading) pdfLoading.classList.add('hidden');
+            });
+        });
+        document.getElementById('page-num').textContent = num;
+    }
+
+    function queueRenderPage(num) {
+        if (pageRendering) pageNumPending = num;
+        else renderPage(num);
+    }
+
+    window.prevPage = function() { if (pageNum > 1) { pageNum--; queueRenderPage(pageNum); } }
+    window.nextPage = function() { if (pageNum < pdfDoc.numPages) { pageNum++; queueRenderPage(pageNum); } }
+    window.closePdf = function() { 
+        if(pdfModal) pdfModal.classList.add('hidden'); 
+        if(ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 });
