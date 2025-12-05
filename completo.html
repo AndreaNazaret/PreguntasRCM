@@ -28,10 +28,11 @@
 <body class="text-gray-800 min-h-screen pb-32">
 
     <header class="glass-header fixed top-0 w-full z-40 px-6 py-4 shadow-sm flex justify-between items-center">
-        <a href="index.html" class="flex items-center text-gray-500 hover:text-red-600 transition-colors font-bold text-sm uppercase tracking-wide">
-            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-            Salir
-        </a>
+        <button onclick="location.reload()" class="flex items-center text-gray-500 hover:text-indigo-600 transition-colors font-bold text-sm uppercase tracking-wide cursor-pointer">
+            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path></svg>
+            Cambiar Modo
+        </button>
+        
         <h1 class="text-lg md:text-xl font-bold text-indigo-900 tracking-tight" id="mode-title">MODO COMPLETO</h1>
         <div class="text-sm font-mono text-gray-400" id="q-counter"></div>
     </header>
@@ -62,7 +63,7 @@
                     </p>
                 </button>
             </div>
-            <a href="index.html" class="mt-8 inline-block text-gray-400 hover:text-gray-600 underline text-sm">Cancelar y volver</a>
+            <a href="index.html" class="mt-8 inline-block text-gray-400 hover:text-gray-600 underline text-sm">Salir al Menú Principal</a>
         </div>
     </div>
 
