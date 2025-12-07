@@ -181,5 +181,51 @@
     ],
     "respuesta_correcta": 2,
     "pagina": 49
+  },
+  {
+    "pregunta": "¿Qué nombre recibe el bloque básico de recursos en tiempo/frecuencia en LTE?",
+    "opciones": [
+      "Slot",
+      "Subtrama",
+      "Physical Resource Block (PRB)",
+      "Portadora"
+    ],
+    "respuesta_correcta": 2,
+    "pagina": 60
+  },
+  {
+    "pregunta": "En 5G-SA, ¿qué función se encarga de gestionar la movilidad y el acceso?",
+    "opciones": [
+      "UPF",
+      "SMF",
+      "AMF",
+      "UDM"
+    ],
+    "respuesta_correcta": 2,
+    "pagina": 16
+  },
+  {
+    "pregunta": "En una red 4G-LTE, ¿cuál es la función principal del PGW (Packet Data Network Gateway) dentro del núcleo EPC?",
+    "opciones": [
+      "Gestionar la movilidad de los usuarios",
+      "Actuar como ancla para traspasos con redes no 3GPP y conectar con redes externas",
+      "Almacenar las identidades y datos de suscripción de los usuarios",
+      "Controlar las políticas de QoS y tarificación",
+      "Proporcionar señalización de control entre el UE y la red"
+    ],
+    "respuesta_correcta": 1,
+    "pagina": 53
+  },
+  {
+    "pregunta": "En el contexto de 5G, ¿qué característica diferenciadora respecto a 4G permite soportar aplicaciones críticas como cirugía remota o vehículos autónomos?",
+    "opciones": [
+      "Mayor número de usuarios conectados simultáneamente",
+      "Latencia ultrabaja del orden de 1–5 ms",
+      "Uso exclusivo de antenas omnidireccionales",
+      "Velocidad máxima limitada a 150 Mbps",
+      "Arquitectura distribuida idéntica a la de 4G"
+    ],
+    "respuesta_correcta": 1,
+    "pagina": 13
   }
 ]

@@ -179,5 +179,49 @@
     ],
     "respuesta_correcta": 2,
     "pagina": 31
+  },
+  {
+    "pregunta": "¿Qué campo clave autentica el Registro en Mobile IP?",
+    "opciones": [
+      "TTL",
+      "MSS",
+      "Identification del registro + extensión de autenticación",
+      "DSCP"
+    ],
+    "respuesta_correcta": 2,
+    "pagina": 25
+  },
+  {
+    "pregunta": "En MANET, “hop count” mide:",
+    "opciones": [
+      "Ancho de banda",
+      "Retardo de propagación",
+      "Número de saltos router‑a‑router hasta destino",
+      "Pérdida de paquetes"
+    ],
+    "respuesta_correcta": 2,
+    "pagina": 52
+  },
+  {
+    "pregunta": "¿Qué ocurre con la dirección IP de un dispositivo móvil cuando se utiliza Mobile IP?",
+    "opciones": [
+      "Cambia cada vez que el dispositivo se mueve",
+      "Se mantiene constante aunque el dispositivo cambie de red",
+      "Se elimina y se asigna una dirección MAC",
+      "Solo funciona si el dispositivo está apagado"
+    ],
+    "respuesta_correcta": 1,
+    "pagina": 2
+  },
+  {
+    "pregunta": "En una red Ad-Hoc, ¿quién actúa como router para permitir la comunicación entre nodos?",
+    "opciones": [
+      "Solo un servidor central",
+      "Cada nodo de la red puede funcionar como router",
+      "Únicamente el nodo inicial de la red",
+      "Un punto de acceso fijo obligatorio"
+    ],
+    "respuesta_correcta": 1,
+    "pagina": 31
   }
 ]

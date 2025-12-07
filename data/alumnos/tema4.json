@@ -182,5 +182,53 @@
     ],
     "respuesta_correcta": 2,
     "pagina": 46
+  },
+  {
+    "pregunta": "En un sistema WiMAX (IEEE 802.16), ¿qué identificador de 16 bits se usa para distinguir de forma única cada conexión a nivel de capa MAC?",
+    "opciones": [
+      "Dirección MAC",
+      "Connection Identifier (CID)",
+      "Service Flow Identifier (SFID)",
+      "Header Check Sequence (HCS)",
+      "VLAN ID"
+    ],
+    "respuesta_correcta": 1,
+    "pagina": 43
+  },
+  {
+    "pregunta": "¿Qué ventaja principal ofrecen las constelaciones de satélites LEO frente a los satélites GEO para servicios interactivos de datos?",
+    "opciones": [
+      "Mayor área de cobertura por satélite",
+      "Menor número de satélites necesarios",
+      "Menor retardo de propagación por su baja altura orbital",
+      "Funcionan únicamente en banda C",
+      "No sufren eclipses"
+    ],
+    "respuesta_correcta": 2,
+    "pagina": 12
+  },
+  {
+    "pregunta": "¿Cuál es una ventaja principal de los satélites geoestacionarios (GEO) respecto a otros tipos de órbita?",
+    "opciones": [
+      "Permiten el uso de antenas fijas al parecer inmóviles en el cielo",
+      "Requieren un gran número de satélites para cobertura global",
+      "Tienen un retardo de propagación muy bajo (20 ms)",
+      "Cambian de posición relativa cada pocos minutos",
+      "Solo funcionan en la banda L"
+    ],
+    "respuesta_correcta": 0,
+    "pagina": 4
+  },
+  {
+    "pregunta": "En el contexto de redes de acceso (WiMAX/Satélite), ¿qué técnica de acceso múltiple se utiliza en el canal de retorno satelital DVB-RCS?",
+    "opciones": [
+      "FDMA",
+      "TDMA",
+      "MF-TDMA",
+      "CDMA",
+      "CSMA/CA"
+    ],
+    "respuesta_correcta": 2,
+    "pagina": 21
   }
 ]
